@@ -1,0 +1,98 @@
+{{> panel/head headTitle = 'contact'}}
+
+{{> panel/header}}
+
+<section class="contact about text-center ">
+	<h3 class="sub-heading">Contact Us</h3>
+	<p class="sub-para">Any question or remarks? Just write a message</p>
+	<div class="contact-form-wrapper text-left">
+		<p class="form-wrapper-heading">Get In Touch</p>
+
+		<div class="contact-form-card">
+			<div class="row">
+				<div class="col-lg-4 p-0 bg-deepblue">
+					<div class="contact-form-card-left">
+						<h4 class="contact-header">Reach Us</h4>
+
+						<div class="contact-social-list">
+							{{#if appDetail.email}}
+							<div class="contact-social-list-row">
+								<img src="{{publicPanelUrl}}/img/mail.png">
+								<p>{{appDetail.email}}</p>
+							</div>
+							{{/if}}
+							{{#if appDetail.mobile}}
+							<div class="contact-social-list-row">
+								<img src="{{publicPanelUrl}}/img/phone.png">
+								<p>{{appDetail.mobile}}</p>
+							</div>
+							{{/if}}
+							{{#if appDetail.location}}
+							<div class="contact-social-list-row">
+								<img src="{{publicPanelUrl}}/img/placeholder.png">
+								<p>{{appDetail.location}}</p>
+							</div>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<div class="contact-form-card-right">
+						{{#each success}}
+						<div class="alert alert-success">
+							<strong>Success!&nbsp;</strong> {{this}}
+						</div>
+						{{/each}}
+						<form id="contact-us-form">
+							<div class="card-form-input-wrapper">
+								<div class="row">
+									<div class="col-sm-6">
+										<label>First Name</label>
+										<input type="text" class="form-control" name="first_name" value="{{user.first_name}}">
+									</div>
+									<div class="col-sm-6 ">
+										<label>Last Name</label>
+										<input type="text" class="form-control" name="last_name" value="{{user.last_name}}">
+									</div>
+								</div>
+
+								<div class="row mr-form-top">
+									<div class="col-sm-6">
+										<label>Mobile No.</label>
+										<input type="number" class="form-control" name="mobile" value="{{user.mobile}}">
+									</div>
+									<div class="col-sm-6 ">
+										<label>Email</label>
+										<input type="email" class="form-control" name="email" value="{{user.email}}">
+									</div>
+								</div>
+								<div class="row mr-form-top">
+									<div class="col-12 ">
+										<label>Subject</label>
+										<input type="text" class="form-control" name="subject">
+									</div>
+								</div>
+								<div class="row mr-form-top position-relative">
+									<div class="col-12 ">
+										<label>Message</label>
+										<textarea type="text" rows="3" class="form-control" name="message"></textarea>
+										<div class="send">
+											<button type="submit" class="concentric border-0 c-p">
+												<img src="{{publicPanelUrl}}/img/send.png">
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+<br><br>
+
+
+{{> panel/footer}}
+{{> panel/footer-link}}

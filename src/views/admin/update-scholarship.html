@@ -1,0 +1,297 @@
+{{> admin/head headTitle = 'update scholarship'}}
+<div class="wrapper">
+    {{> admin/header}}
+
+    {{> admin/sidenav}}
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Scolarship
+                <!-- <small>Control panel</small> -->
+            </h1>
+            <!-- <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol> -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-8 col-md-offset-2">
+
+                    {{#if success}}
+
+                    {{#each success}}
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{{this}}}
+                    </div>
+                    {{/each}}
+                    {{else if error}}
+
+                    {{#each error}}
+                    <div class="alert alert-danger">
+                        <strong>Danger!</strong> {{this}}
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Update scholarship</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <!--  -->
+                        <form role="form" action="{{baseUrl}}/admin/update-scholarship/{{data.id}}" method="POST"
+                            enctype="multipart/form-data">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="name">Scholarship name</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter scholarship name"
+                                        value="{{data.name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Scholarship Description</label>
+                                    <textarea type="text" class="form-control" id="description" name="description"
+                                        placeholder="Enter category name">{{data.description}}</textarea>
+                                    <script>
+                                        CKEDITOR.replace('description');
+                                    </script>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="end_date">Scholarship end date</label>
+                                    <input type="date" class="form-control" id="end_date" name="end_date" placeholder="Enter scholarship end date"
+                                        value="{{dateFormat data.end_date 'YYYY-MM-DD'}}" style="width: 25%;">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="award_oneliner">Award one liner</label>
+                                    <input type="text" class="form-control" id="award_oneliner" name="award_oneliner"
+                                        placeholder="Enter award one liner" value="{{data.award_oneliner}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="award_description">Award Description</label>
+                                    <textarea type="text" class="form-control" id="award_description" name="award_description"
+                                        placeholder="Enter category name">{{data.award_description}}</textarea>
+                                    <script>
+                                        CKEDITOR.replace('award_description');
+                                    </script>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="eligibility_oneliner">Eligibility one liner</label>
+                                    <input type="text" class="form-control" id="eligibility_oneliner" name="eligibility_oneliner"
+                                        placeholder="Enter eligibility one liner" value="{{data.eligibility_oneliner}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="eligibility_description">Eligibility Description</label>
+                                    <textarea type="text" class="form-control" id="eligibility_description" name="eligibility_description"
+                                        placeholder="Enter category name">{{data.eligibility_description}}</textarea>
+                                    <script>
+                                        CKEDITOR.replace('eligibility_description');
+                                    </script>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="min_age">Min Age</label>
+                                            <input type="number" class="form-control" id="min_age" name="min_age"
+                                                placeholder="Enter min age" value="{{data.min_age}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="max_age">Max Age</label>
+                                            <input type="number" class="form-control" id="max_age" name="max_age"
+                                                placeholder="Enter max age" value="{{data.max_age}}">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{#each categories as |item|}}
+                                <div class="form-group">
+                                    <label>Select {{item.name}}</label><br />
+                                    {{#each item.subcategories as |subcategory index|}}
+                                    <label style="min-width: 20%; margin-right: 10px;">
+                                        <input type="checkbox" value="{{subcategory.id}}"
+                                            {{multiCheckedCheckbox subcategory.id ../../data.subcategoriesIds}} name="categories_checkbox">
+                                        {{subcategory.name}}
+                                    </label>
+                                    {{/each}}
+                                    <label style="min-width: 20%; margin-right: 10px;">
+                                        <input type="checkbox" class="check-all-checkbox-under-his-parent" value=""
+                                            name="">
+                                        Select All
+                                    </label>
+
+                                </div>
+                                {{/each}}
+
+                                <div class="form-group">
+                                    <label for="country_name">Country Name</label>
+                                    <input type="text" class="form-control" id="country_name" name="country_name"
+                                        placeholder="Enter country name" value="{{data.country_name}}">
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="how_to_apply">How to apply</label>
+                                    <textarea type="text" class="form-control" id="how_to_apply" name="how_to_apply"
+                                        placeholder="Enter category name">{{data.how_to_apply}}</textarea>
+                                    <script>
+                                        CKEDITOR.replace('how_to_apply');
+                                    </script>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input class="form-control" id="copy-link-input" value='<a href="{link}" target="_blank">{text}</a>'>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn btn-primary" onClick="copy()">copy</button>
+                                    </div>
+                                    <script>
+                                        function copy() {
+                                            var copyText = document.getElementById("copy-link-input");
+                                            copyText.select();
+                                            document.execCommand("copy");
+                                        }
+                                    </script>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="important_link">Important link</label>
+                                    <br />
+                                    <!-- <pre class="p-0"> <xmp class="m-0"> <a href="{link}" target="_blank">{text}</a></xmp> </pre> -->
+                                    <textarea type="text" class="form-control" id="important_link" name="important_link"
+                                        placeholder="Enter category name">{{data.important_link}}</textarea>
+                                    <script>
+                                        CKEDITOR.replace('important_link');
+                                    </script>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="document_required">Document required</label>
+                                    <textarea type="text" class="form-control" id="document_required" name="document_required"
+                                        placeholder="Enter category name">{{data.document_required}}</textarea>
+                                    <script>
+                                        CKEDITOR.replace('document_required');
+                                    </script>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="apply_now_button">Apply now button link</label>
+                                    <input type="text" class="form-control" id="apply_now_button" name="apply_now_button"
+                                        placeholder="Enter Apply now button link" value="{{data.apply_now_button}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact_person">Contact person section</label>
+                                    <textarea type="text" class="form-control" id="contact_person" name="contact_person"
+                                        placeholder="Enter category name">{{data.contact_person}}</textarea>
+                                    <script>
+                                        CKEDITOR.replace('contact_person');
+                                    </script>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="thumbnail_image">Thumbnail image</label>
+                                    <p class="color-red">(130x130 or 150x150 or 200 x 200 or same ratio)</p>
+                                    <input type="file" id="thumbnail_image" name="thumbnail_image">
+                                    <input type="hidden" name="img_url" value="{{data.img}}">
+                                </div>
+
+                                {{#if data.img}}
+                                <img width="100px" height="100px" src="{{baseUrl}}{{data.img}}">
+                                {{/if}}
+
+                                <div class="form-group">
+                                    <label for="additional_document">Additional document</label>
+                                    <input type="file" id="additional_document" name="additional_document">
+                                    <input type="hidden" name="doc_url" value="{{data.document}}">
+                                </div>
+
+                                {{#if data.document}}
+                                <!-- <iframe src="{{data.document}}">
+                                    <p>Your browser does not support iframes.</p>
+                                </iframe> -->
+                                <a href="{{baseUrl}}{{data.document}}" target="_blank" class="text-uppercase">view
+                                    document</a>
+                                {{/if}}
+
+                            </div>
+                            <!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                        <div class="box-footer">
+                            <button id="clear-form" class="btn btn-primary">Clear All</button>
+                        </div>
+                    </div>
+                    <!-- /.box -->
+
+
+
+                </div>
+                <!--/.col (left) -->
+
+            </div>
+            <!-- /.row -->
+
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    {{> admin/footer}}
+
+
+
+</div>
+<!-- ./wrapper -->
+
+<script>
+    $('form').submit(function (e) {
+        // e.preventDefault();
+        for (instance in CKEDITOR.instances) {
+
+            var val = CKEDITOR.instances[instance].getData();
+            $(`#${instance}`).val(val);
+        }
+        // var a = $('#subcategory_description').text();
+        // var a = CKEDITOR.instances['subcategory_description'].getData()
+        // var b = $('#subcategory_description');
+        // alert(a);
+        // console.log(a, b);
+        // return;
+
+        $('#clear-form').click(function () {
+            $('#add-scholarship-form')[0].reset();
+            $("textarea").val('');
+            for (instance in CKEDITOR.instances) {
+                CKEDITOR.instances[instance].setData('');
+            }
+        });
+    });
+</script>
+
+
+{{> admin/footer-link}}

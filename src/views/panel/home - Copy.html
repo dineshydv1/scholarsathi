@@ -1,0 +1,439 @@
+{{> panel/head headTitle = 'home'}}
+
+{{> panel/header}}
+
+<section class="header">
+	<div class="header-wrapper">
+		<div class="row">
+			<div class="col-lg-6 ">
+				<div class="header-text">
+					<div class="header-text-detail">
+						<h3 class="header-best  m-0">BEST</h3>
+						<h2 class="header-scholar m-0">SCHOLARSHIPS</h2>
+						<p class="header-para">FIND THE SCHOLARSHIPS THAT'S RIGHT FOR YOU</p>
+					</div>
+					<div class="header-input">
+						<div class="form-input-wrapper position-relative">
+							<form action="{{baseUrl}}/scholarship-list" method="GET" enctype="application/x-www-form-urlencoded">
+								<input class="form-control" placeholder="Search Your Scholarships" name="search">
+								<button type="submit" class="btn input-addon-search"><img src="{{publicPanelUrl}}/img/magnifying-glass.svg"
+									 width="20px"></button>
+							</form>
+						</div>
+						<div class="header-input-filter-list">
+							{{#each searchMenu as |item|}}
+							<a href="{{baseUrl}}/scholarship-list/{{item.id}}?action=headerMenu" class="text">{{item.name}}</a>
+							{{/each}}
+							<a href="{{baseUrl}}/scholarship-list" class="btn btn-view-all">VIEW ALL</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 mobile-hide ">
+				<div class="header-img-wrapper position-relative">
+					<!-- <img src="{{publicPanelUrl}}/img/header.png" class="header-img"> -->
+					<img src="{{publicPanelUrl}}/img/last-h.png" class="header-img">
+					<img src="{{publicPanelUrl}}/img/cloud1.svg" class="cloud1">
+					<img src="{{publicPanelUrl}}/img/cloud2.svg" class="cloud2">
+					<img src="{{publicPanelUrl}}/img/bulb.svg" class="bulb">
+					<img src="{{publicPanelUrl}}/img/saturn.svg" class="saturn">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="scholarships text-center">
+	<h3 class="sub-heading">A Smarter Way to Scholarships</h3>
+	<p class="sub-para">We help you to choose you best-fit scholarship</p>
+
+	<div class="container-fluid">
+		<div class="scholarships-card-container comman-padd">
+			<div class="row">
+				{{#each bestScholarsip as |item|}}
+				<!---------------- card start ---------------->
+				<div class="col-xl-3 col-md-4 col-6">
+					<a href="{{baseUrl}}/scholarship-list/{{item.id}}?action=bestScholarship" class="scholarships-card text-center">
+						<div class="scholarships-card-img">
+							<img src="{{assetsUrl item.img}}">
+						</div>
+						<div class="scholarships-card-detail">
+							<p class="scholarships-card-detail-heading black">{{item.name}}</p>
+							<p class="scholarships-card-detail-para niramit">{{item.sub_title}}</p>
+						</div>
+					</a>
+				</div>
+				<!-------------- card closed ---------------->
+				{{/each}}
+
+				<!---------------- card start ---------------->
+				<!-- <div class="col-xl-3 col-md-4 col-6">
+					<div class="scholarships-card text-center">
+						<div class="scholarships-card-img">
+							<img src="{{publicPanelUrl}}/img/card-1.png">
+						</div>
+						<div class="scholarships-card-detail">
+							<p class="scholarships-card-detail-heading">MEANS BASED SCHOLARSHIPS</p>
+							<p class="scholarships-card-detail-para niramit">Scholarships for families with low income</p>
+						</div>
+					</div>
+				</div> -->
+				<!-------------- card closed ---------------->
+
+				<!---------------- card start ---------------->
+				<!-- <div class="col-xl-3 col-md-4 col-6">
+					<div class="scholarships-card text-center">
+						<div class="scholarships-card-img">
+							<img src="{{publicPanelUrl}}/img/card-2.png">
+						</div>
+						<div class="scholarships-card-detail">
+							<p class="scholarships-card-detail-heading">MEANS BASED SCHOLARSHIPS</p>
+							<p class="scholarships-card-detail-para niramit">Scholarships for families with low income</p>
+						</div>
+					</div>
+				</div> -->
+				<!-------------- card closed ---------------->
+
+				<!---------------- card start ---------------->
+				<!-- <div class="col-xl-3 col-md-4 col-6">
+					<div class="scholarships-card text-center">
+						<div class="scholarships-card-img">
+							<img src="{{publicPanelUrl}}/img/card-3.png">
+						</div>
+						<div class="scholarships-card-detail">
+							<p class="scholarships-card-detail-heading">MEANS BASED SCHOLARSHIPS</p>
+							<p class="scholarships-card-detail-para niramit">Scholarships for families with low income</p>
+						</div>
+					</div>
+				</div> -->
+				<!-------------- card closed ---------------->
+
+				<!---------------- card start ---------------->
+				<!-- <div class="col-xl-3 col-md-4 col-6">
+					<div class="scholarships-card text-center">
+						<div class="scholarships-card-img">
+							<img src="{{publicPanelUrl}}/img/card-4.png">
+						</div>
+						<div class="scholarships-card-detail">
+							<p class="scholarships-card-detail-heading">MEANS BASED SCHOLARSHIPS</p>
+							<p class="scholarships-card-detail-para niramit">Scholarships for families with low income</p>
+						</div>
+					</div>
+				</div> -->
+				<!-------------- card closed ---------------->
+
+				<!---------------- card start ---------------->
+				<!-- <div class="col-xl-3 col-md-4 col-6">
+					<div class="scholarships-card text-center">
+						<div class="scholarships-card-img">
+							<img src="{{publicPanelUrl}}/img/card-5.png">
+						</div>
+						<div class="scholarships-card-detail">
+							<p class="scholarships-card-detail-heading">MEANS BASED SCHOLARSHIPS</p>
+							<p class="scholarships-card-detail-para niramit">Scholarships for families with low income</p>
+						</div>
+					</div>
+				</div> -->
+				<!-------------- card closed ---------------->
+
+				<!---------------- card start ---------------->
+				<!-- <div class="col-xl-3 col-md-4 col-6">
+					<div class="scholarships-card text-center">
+						<div class="scholarships-card-img">
+							<img src="{{publicPanelUrl}}/img/card-6.png">
+						</div>
+						<div class="scholarships-card-detail">
+							<p class="scholarships-card-detail-heading">MEANS BASED SCHOLARSHIPS</p>
+							<p class="scholarships-card-detail-para niramit">Scholarships for families with low income</p>
+						</div>
+					</div>
+				</div> -->
+				<!-------------- card closed ---------------->
+
+				<!---------------- card start ---------------->
+				<!-- <div class="col-xl-3 col-md-4 col-6">
+					<div class="scholarships-card text-center">
+						<div class="scholarships-card-img">
+							<img src="{{publicPanelUrl}}/img/card-7.png">
+						</div>
+						<div class="scholarships-card-detail">
+							<p class="scholarships-card-detail-heading">MEANS BASED SCHOLARSHIPS</p>
+							<p class="scholarships-card-detail-para niramit">Scholarships for families with low income</p>
+						</div>
+					</div>
+				</div> -->
+				<!-------------- card closed ---------------->
+				<!---------------- card start ---------------->
+				<!-- <div class="col-xl-3 col-md-4 col-6">
+					<div class="scholarships-card text-center">
+						<div class="scholarships-card-img">
+							<img src="{{publicPanelUrl}}/img/card-8.png">
+						</div>
+						<div class="scholarships-card-detail">
+							<p class="scholarships-card-detail-heading">MEANS BASED SCHOLARSHIPS</p>
+							<p class="scholarships-card-detail-para niramit">Scholarships for families with low income</p>
+						</div>
+					</div>
+				</div> -->
+				<!-------------- card closed ---------------->
+
+			</div>
+		</div>
+
+	</div>
+	</div>
+</section>
+<section class="help text-center">
+	<h3 class="sub-heading">How we can help</h3>
+	<p class="sub-para">We bridge gap between you and your best-fit scholarships</p>
+	<div class="help-container">
+		<div class="row">
+			<div class="col-lg-6 p-0 text-left">
+				<img src="{{publicPanelUrl}}/img/help.png" width="90%">
+			</div>
+			<div class="col-lg-6 pd-0 help-detail mt-5">
+				<div class="help-detail-card-wrapper">
+					<div class="help-detail-card">
+						<div class="help-detail-text-wrapper text-left">
+							<div class="dot mr-3">
+								<img src="{{publicPanelUrl}}/img/dot.svg" width="8px">
+							</div>
+							<div class="help-detail-text">
+								<p class="niramit help-list-heading">Scholarships World :</p>
+								<p class="niramit help-list-para">Access to all types of listed domestic and international scholarships.</p>
+							</div>
+						</div>
+
+						<div class="help-detail-text-wrapper text-left">
+							<div class="dot mr-3">
+								<img src="{{publicPanelUrl}}/img/dot.svg" width="8px">
+							</div>
+							<div class="help-detail-text">
+								<p class="niramit help-list-heading">Application and Review Process:</p>
+								<p class="niramit help-list-para">From documents verification to form filling, we will guide you through complete Scholarship application process.</p>
+							</div>
+						</div>
+
+						<div class="help-detail-text-wrapper text-left">
+							<div class="dot mr-3">
+								<img src="{{publicPanelUrl}}/img/dot.svg" width="8px">
+							</div>
+							<div class="help-detail-text">
+								<p class="niramit help-list-heading">Personalized Alerts :</p>
+								<p class="niramit help-list-para">Apart from regular alerts, we send you Email/SMS alerts for scholarships matching your profile.</p>
+							</div>
+						</div>
+
+						<div class="help-detail-text-wrapper text-left mb-0">
+							<div class="dot mr-3">
+								<img src="{{publicPanelUrl}}/img/dot.svg" width="8px">
+							</div>
+							<div class="help-detail-text">
+								<p class="niramit help-list-heading">Customer Support :</p>
+								<p class="niramit help-list-para">Talk to our Customer Support when in doubt about a Scholarship.</p>
+							</div>
+						</div>
+						<div class="text-center mt-3">
+							{{#compare user '==' undefined}}
+							<button class="btn btn-join" data-toggle="modal" data-target="#registerModal"><img src="{{publicPanelUrl}}/img/profile.svg" width="16px" class="mr-3">JOIN NOW</button>
+							{{/compare}}
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<section class="work text-center comman-padd">
+	<h3 class="sub-heading">How It Works</h3>
+	<div class="container">
+		<div class="work-frame-wrapper">
+			<div class="row justify-content-center">
+				<div class="col-xl-3 col-md-3 col-8 text-center mb-5">
+					<div class="work-frame-card-wrapper">
+						<p class="frame-text">STEP 1</p>
+						<div class="work-frame">
+							<img src="{{publicPanelUrl}}/img/1.png">
+							<p>Register With Us</p>
+							<img src="{{publicPanelUrl}}/img/triangle.png" class="triangle">
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-3 col-md-3 col-8 text-center mb-5 pt-md-5">
+					<div class="work-frame-card-wrapper">
+						<p class="frame-text">STEP 2</p>
+						<div class="work-frame">
+							<img src="{{publicPanelUrl}}/img/2.png">
+							<p>Search Best Scholarships</p>
+							<img src="{{publicPanelUrl}}/img/triangle.png" class="triangle">
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-3 col-md-3 col-8 text-center mb-5">
+					<div class="work-frame-card-wrapper">
+						<p class="frame-text">STEP 3</p>
+						<div class="work-frame">
+							<img src="{{publicPanelUrl}}/img/3.png">
+							<p>Apply For Scholarships</p>
+							<img src="{{publicPanelUrl}}/img/triangle.png" class="triangle">
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-3 col-md-3 col-8 text-center mb-5 pt-md-5">
+					<div class="work-frame-card-wrapper">
+						<p class="frame-text">STEP 4</p>
+						<div class="work-frame">
+							<img src="{{publicPanelUrl}}/img/4.png">
+							<p>Get the Best Scholarships</p>
+							<img src="{{publicPanelUrl}}/img/triangle.png" class="triangle">
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<section class="register position-relative comman-padd text-center">
+	<img src="{{publicPanelUrl}}/img/register-bg.png" class="register-absolute-img">
+	<h3 class="sub-heading">Register with Us</h3>
+	<p class="sub-para">And let the future of scholarships unfolds</p>
+
+	<div class="register-wrapper">
+
+		<div class="row">
+			<div class="col-xl-7">
+				<div class="register-pad">
+
+					<div class="row">
+						<div class="col-sm-6 my-2">
+							<div class="register-pad-element">
+								<div>
+									<div class="text-left ml-4">
+										<p class=" niramit register-pad-heading">Free Plan</p>
+									</div>
+									<ul class="text-left">
+										<li><span>Access to All Scholarships</span></li>
+										<li><span>Regular Email Alerts/Newsletters</span></li>
+										<li><span>Scholarships Matching Your Profile</span></li>
+										<li><span>Limited Customer Support</span></li>
+
+									</ul>
+								</div>
+								{{#compare user '==' undefined}}
+								<button data-toggle="modal" data-target="#registerModal" class="btn btn-join">REGISTER NOW</button>
+								{{/compare}}
+							</div>
+						</div>
+
+						<div class="col-sm-6 my-2">
+							<div class="register-pad-element  position-relative">
+								<div>
+									<img src="{{publicPanelUrl}}/img/sticker.png" class="sticker">
+									<div class="text-left ml-4">
+										<p class=" niramit register-pad-heading">Premium Plan</p>
+									</div>
+									<ul class="text-left">
+										<li><span>All features of Basic Plan</span></li>
+										<li><span>Personalized Scholarships Information</span></li>
+										<li><span>Personalized SMS/Email Alerts</span></li>
+										<li><span>Scholarship Application Guidance</span></li>
+										<li><span>On Call one-to-one Customer Support</span></li>
+
+									</ul>
+								</div>
+								{{#compare user '==' undefined}}
+								<button data-toggle="modal" data-target="#registerModal" class="btn btn-join">REGISTER NOW</button>
+								{{/compare}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-5 pr-0 text-right">
+				<div class="register-img">
+					<img src="{{publicPanelUrl}}/img/register.png" width="90%">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</section>
+
+<section class="popular text-center">
+	<h3 class="sub-heading">Popular Scholarships</h3>
+
+
+	<!--  carousel end ---------------->
+	<div class="container">
+		<div id="owl-example2">
+			{{#each popularScholarship as |item|}}
+			<div class="item">
+				<div class="popular-card mx-sm-4 mar-down-card">
+					<div class="popular-card-img">
+						<img src="{{assetsUrl item.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'" class="mb-2">
+					</div>
+					<div class="popular-card-detail">
+						<p class="popular-card-detail-heading niramit">
+							{{item.name}}
+						</p>
+						<a href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}" class="btn btn-more mt-2">Know More</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+
+		</div>
+	</div>
+
+</section>
+
+
+<section class="recently text-center">
+	<h3 class="sub-heading">Recently Added Scholarships</h3>
+
+	<div class="recently-card-list">
+		<div class="container">
+
+			<div id="owl-example3">
+
+				{{#each recentlyAddedScholarship as |item|}}
+				<div class="item">
+					<div class="popular-card">
+						<div class="popular-card-img">
+							<img src="{{assetsUrl item.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'" class="mb-2">
+						</div>
+						<p class="popular-card-detail-heading fs-22 niramit">
+							{{item.name}}
+						</p>
+						<a href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}" class="btn btn-more mt-2">Know More</a>
+					</div>
+
+				</div>
+				{{/each}}
+
+
+			</div>
+		</div>
+	</div>
+
+</section>
+<br>
+{{#compare user undefined}}
+<div class="fab-icon" data-toggle="modal" data-target="#registerModal">
+	<img src="{{publicPanelUrl}}/img/clip.svg">
+</div>
+{{/compare}}
+
+
+{{> panel/footer}}
+{{> panel/footer-link}}

@@ -1,0 +1,98 @@
+{{> panel/head headTitle = 'Career'}}
+
+{{> panel/header}}
+
+<section class="career comman-padd">
+      <div class="career-wrapper">
+            <div class="row">
+                  <div class="col-lg-4">
+                        <div class="career-detail">
+                              <p class="career-detail-heading">Come and work with us.</p>
+                              <p class="career-detail-para">Looking to accelerate your career with a startup, then ScholarSathi is best place for you.</p>
+                        </div>
+                  </div>
+                  <div class="col-lg-8">
+                        <div class="career-card text-center">
+                              <h3 class="career-card-heading">Career Opportunities</h3>
+                              <div class="text-left">
+                                    {{#each success}}
+                                    <div class="alert alert-success">
+                                          <strong>Success!</strong>&nbsp; {{this}}
+                                    </div>
+                                    {{/each}}
+
+                                    {{#each error}}
+                                    <div class="alert alert-danger">
+                                          <strong>Danger!</strong>&nbsp; {{this}}
+                                    </div>
+                                    {{/each}}
+                              </div>
+                              <form action="{{baseUrl}}/careers-form" method="POST" enctype="multipart/form-data">
+                                    <div class="career-form text-left">
+
+                                          <div class="card-form-input-wrapper">
+                                                <div class="row">
+                                                      <div class="col-sm-6">
+                                                            <label>Full Name:</label>
+                                                            <input type="text" class="form-control" name="full_name"
+                                                                  value="{{formValue.full_name}}">
+                                                      </div>
+                                                      <div class="col-sm-6 ">
+                                                            <label>Date of Birth:</label>
+                                                            <input type="date" class="form-control" name="date_of_birth"
+                                                                  value="{{formValue.date_of_birth}}">
+                                                      </div>
+                                                </div>
+
+                                                <div class="row mr-form-top">
+                                                      <div class="col-sm-6">
+                                                            <label>Qualification:</label>
+                                                            <input type="text" class="form-control" name="qualification" value="{{formValue.qualification}}">
+                                                      </div>
+                                                      <div class="col-sm-6 ">
+                                                            <label>Mobile Number:</label>
+                                                            <input type="number" class="form-control" name="mobile" value="{{formValue.mobile}}">
+                                                      </div>
+                                                </div>
+                                                <div class="row mr-form-top">
+                                                      <div class="col-sm-6">
+                                                            <label>Area of interest:</label>
+                                                            <input type="text" class="form-control" name="area_of_interest" value="{{formValue.area_of_interest}}">
+                                                      </div>
+                                                      <div class="col-sm-6 ">
+                                                            <label>How soon ready to join:</label>
+                                                            <!-- <input type="date" class="form-control" name="join" value="{{formValue.join}}"> -->
+                                                            <select class="form-control" name="join" >
+                                                                  <option value="within 1 month" {{selectedSelectOption "within 1 month" formValue.join}} >within 1 month</option>
+                                                                  <option value="within 1-3 months" {{selectedSelectOption "within 1-3 months" formValue.join}}>within 1-3 months</option>
+                                                                  <option value="more than 3 months" {{selectedSelectOption "more than 3 months" formValue.join}}>more than 3 months</option>
+                                                            </select>
+                                                      </div>
+                                                </div>
+                                                <div class="row mr-form-top">
+                                                      <div class="col-sm-6">
+                                                            <label>Resume one linear:</label>
+                                                            <textarea type="text" rows="3" class="form-control" name="resume_one_linear">{{formValue.resume_one_linear}}</textarea>
+                                                      </div>
+                                                      <div class="col-sm-6">
+                                                            <label>Upload resume:</label>
+                                                            <input type="file" class="form-control" name="file">
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-join mt-5 fs-16">APPLY NOW</button>
+                              </form>
+
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+</section>
+<br><br>
+
+
+
+{{> panel/footer}}
+{{> panel/footer-link}}

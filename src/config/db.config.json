@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "scholarsathi",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "",
+    "database": "scholarsathi",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "fttrisha@123",
+    "database": "scholarsathi",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

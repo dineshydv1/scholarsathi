@@ -1,0 +1,73 @@
+<div class="profile-card">
+    <div class="profile-card-header d-flex align-items-center">
+        <div class="profile-header-img">
+            <img src="{{user.img}}" onerror="this.src='{{publicPanelUrl}}/img/user.png'">
+
+        </div>
+        <div class="profile-name text-left">
+            <p class="name">{{user.first_name}} {{user.last_name}}</p>
+            <p class="sub-name">{{user.email}}</p>
+        </div>
+    </div>
+    {{#if user.parent_id}}
+    <div class="profile-card-progress">
+        <p class="mt-0 mb-2">{{myProfilePregress user}}% &nbsp <span class="grey">Profile Completed </span></p>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" {{{myProfilePregress user 'style'}}}>
+                <!-- <span class="sr-only">70% Complete</span> -->
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    <div class="profile-card-list">
+        {{#if user.parent_id}}
+        <a href="{{baseUrl}}/matched-scholarship-list" class="profile-card-list-row">
+            <img src="{{publicPanelUrl}}/img/guarantee.png" width="22px">
+            <p class="m-0">My Matched Scholarship</p>
+        </a>
+
+        <a href="{{baseUrl}}/saved-scholarship-list" class="profile-card-list-row">
+            <img src="{{publicPanelUrl}}/img/bookmark-grey.png" width="22px">
+            <p class="m-0">My Saved Scholarship</p>
+        </a>
+
+        <a href="{{baseUrl}}/entrance-exam-list" class="profile-card-list-row">
+            <img src="{{publicPanelUrl}}/img/entrance-exam.png" width="22px">
+            <p class="m-0">Entrance Exam List</p>
+        </a>
+
+        <a href="{{baseUrl}}/scholarship-history-list" class="profile-card-list-row">
+            <img src="{{publicPanelUrl}}/img/history.png" width="22px">
+            <p class="m-0">Scholarship History List</p>
+        </a>
+
+        <a href="{{baseUrl}}/document-list" class="profile-card-list-row">
+            <img src="{{publicPanelUrl}}/img/doc.png" width="22px">
+            <p class="m-0">Document List</p>
+        </a>
+
+        {{else}}
+
+        <a href="{{baseUrl}}/account-list" class="profile-card-list-row">
+            <img src="{{publicPanelUrl}}/img/three-users.png" width="22px">
+            <p class="m-0">Scholarship Profile List</p>
+        </a>
+
+        {{/if}}
+
+        <a href="{{baseUrl}}/my-profile" class="profile-card-list-row">
+            <img src="{{publicPanelUrl}}/img/one-user.png" width="22px">
+            <p class="m-0">My Account</p>
+        </a>
+
+        <a href="{{baseUrl}}/setting" class="profile-card-list-row">
+            <img src="{{publicPanelUrl}}/img/setting.png" width="22px">
+            <p class="m-0">Setting</p>
+        </a>
+
+        <a href="{{baseUrl}}/logout" class="profile-card-list-row">
+            <img src="{{publicPanelUrl}}/img/logout.png" width="22px">
+            <p class="m-0">Logout</p>
+        </a>
+    </div>
+</div>

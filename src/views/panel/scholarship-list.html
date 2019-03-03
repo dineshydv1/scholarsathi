@@ -1,0 +1,207 @@
+{{#section 'head'}}
+<link rel="stylesheet" href="{{publicPanelUrl}}/css/bootstrap-select.min.css">
+{{/section}}
+
+
+
+{{> panel/head headTitle = 'scholarship list'}}
+
+{{> panel/header}}
+
+<section class="contact about text-center ">
+     <h3 class="sub-heading">Select the Best Scholarships For You </h3>
+     <!-- <p class="sub-para">Lorem ipsum dolar sit amet adipiscing</p> -->
+
+     {{#if search}}
+     <div class="account-wrapper  comman-pad">
+          <p class="filter-tag mb-0">Search By : <b>{{search}}</b></p>
+          <input type="hidden" name="search" id="search-input" value="{{search}}">
+     </div>
+     {{else}}
+     <div class="account-wrapper  comman-pad">
+
+          <p class="filter-tag">Filtered By :</p>
+          <p class="filter-tag-names text-left">
+               <!-- <span>yash <img class="ml-2 mt-m-2" width="18px" src="{{publicPanelUrl}}/img/cancel.png"> </span>
+               <span>yash</span> -->
+               {{#each selectedSubcategory as |item|}}
+               <span data-id="{{item.id}}">{{item.name}} <img class="ml-2 mt-m-2" width="18px" src="{{publicPanelUrl}}/img/cancel.png"></span>
+               {{/each}}
+          </p>
+          <div class="filter-bar">
+               <div class="row">
+                    <!------- fiter element start -------->
+                    <div class="col-lg-2 bd-r">
+                         <div class="dropdown scholarship-filter-dropdown mt-1">
+                              <!-- <p data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                   class="drop-p">
+                                   Education 
+                                   <img src="{{publicPanelUrl}}/img/down-arrow.svg" width="20px">
+                              </p> -->
+                              <select class="selectpicker" name="education" multiple data-live-search="true" title="Education"
+                                   data-selected-text-format="static">
+                                   {{#each categories.education.subcategories as |item|}}
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   {{/each}}
+                              </select>
+
+                         </div>
+                    </div>
+                    <!------- fiter element closed -------->
+
+                    <!------- fiter element start -------->
+                    <div class="col-lg-2 bd-r">
+                         <div class="dropdown scholarship-filter-dropdown mt-1">
+                              <select class="selectpicker" name="religion" multiple data-live-search="true" title="Religion"
+                                   data-selected-text-format="static">
+                                   {{#each categories.religion.subcategories as |item|}}
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   {{/each}}
+                              </select>
+                         </div>
+                    </div>
+                    <!------- fiter element closed -------->
+
+                    <!------- fiter element start -------->
+                    <div class="col-lg-2 bd-r">
+                         <div class="dropdown scholarship-filter-dropdown mt-1">
+                              <select class="selectpicker" name="gender" multiple data-live-search="true" title="Gender"
+                                   data-selected-text-format="static">
+                                   {{#each categories.gender.subcategories as |item|}}
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   {{/each}}
+                              </select>
+
+                         </div>
+                    </div>
+                    <!------- fiter element closed -------->
+
+                    <!------- fiter element start -------->
+                    <div class="col-lg-2 bd-r">
+                         <div class="dropdown scholarship-filter-dropdown mt-1">
+                              <select class="selectpicker" name="scholarship" multiple data-live-search="true" title="Scholarship"
+                                   data-selected-text-format="static">
+                                   {{#each categories.type.subcategories as |item|}}
+                                   <!-- <option value="">select</option> -->
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   {{/each}}
+                              </select>
+
+                         </div>
+                    </div>
+                    <!------- fiter element closed -------->
+
+                    <!------- fiter element start -------->
+                    <div class="col-lg-2 bd-r">
+                         <div class="dropdown scholarship-filter-dropdown mt-1">
+                              <!-- <p id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                   class="drop-p">
+                                   Country <img src="{{publicPanelUrl}}/img/down-arrow.svg" width="20px">
+                              </p> -->
+
+                              <select class="selectpicker" name="country" multiple data-live-search="true" title="Country"
+                                   data-selected-text-format="static">
+                                   {{#each categories.country.subcategories as |item|}}
+                                   <!-- <option value="">select</option> -->
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   {{/each}}
+                              </select>
+
+                         </div>
+                    </div>
+                    <!------- fiter element closed -------->
+
+                    <!------- fiter element start -------->
+                    <div class="col-lg-2 ">
+                         <button class="btn btn-filter" id="on-filter-scholarship-btn" disabled>SEARCH </button>
+
+                    </div>
+                    <!------- fiter element closed -------->
+
+
+               </div>
+          </div>
+
+     </div>
+     {{/if}}
+
+     <div class="account-wrapper comman-pad">
+          <!-- <div>
+               <p class="form-wrapper-heading fs-22 text-left mb-4 ml-2">All Scholarships</p>
+          </div> -->
+          {{#if search}}
+          {{else}}
+          <div class="row">
+               <div class="col-auto">
+                    <div class="btn-group active-inactive-box" role="group" aria-label="Basic example">
+                         <button type="button" data-type="active" class="btn active-inactive-box-button active">Active</button>
+                         <button type="button" data-type="inactive" class="btn active-inactive-box-button">Inactive</button>
+                         <button type="button" data-type="always_open" class="btn active-inactive-box-button">Always Open</button>
+                    </div>
+               </div>
+          </div>
+          {{/if}}
+
+
+          <div class="row">
+
+               <div id="scholarship-list" class="col-lg-8 text-left">
+
+                    {{> panel/scholarship-card}}
+
+               </div>
+
+               <div class="col-lg-4">
+
+                    <div class="facebook-card text-left ">
+                         <div class="facebook-card-header">
+                              <p>Popular Scholarships</p>
+                         </div>
+
+                         {{#each popularScholarship as |item|}}
+                         <div class="media scholarship-small-card">
+                              <div class="img-div">
+                                   <img src="{{assetsUrl item.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'">
+                              </div>
+                              <div class="media-body">
+                                   <a h href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}" class="saved-card-detail-heading scholarship-name fs-16 mb-2">{{item.name}}</a>
+                                   <p class="red fw-700 fs-14 mb-1">{{dateFormat item.end_date 'DD-MMM-YYYY'}}</p>
+                              </div>
+                         </div>
+                         {{/each}}
+                    </div>
+
+                    <div class="facebook-card text-left ">
+                         <div class="facebook-card-header">
+                              <p>Recently Added Scholarships</p>
+                         </div>
+
+                         {{#each recentlyAddedScholarship as |item|}}
+                         <div class="media scholarship-small-card">
+                              <div class="img-div">
+                                   <img src="{{assetsUrl item.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'">
+                              </div>
+                              <div class="media-body">
+                                   <a h href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}" class="saved-card-detail-heading scholarship-name fs-16 mb-2">{{item.name}}</a>
+                                   <p class="red fw-700 fs-14 mb-1">{{dateFormat item.end_date 'DD-MMM-YYYY'}}</p>
+                              </div>
+                         </div>
+                         {{/each}}
+                    </div>
+
+               </div>
+          </div>
+
+     </div>
+
+</section>
+<br><br>
+
+
+{{#section 'footer'}}
+<script src="{{publicPanelUrl}}/js/bootstrap-select.min.js"></script>
+{{/section}}
+
+
+{{> panel/footer}}
+{{> panel/footer-link}}

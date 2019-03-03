@@ -1,0 +1,202 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="{{activeClass path '/admin'}}">
+                <a href="{{baseUrl}}/admin">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+            </li>
+
+
+            <li class="{{activeClass path '/admin/app-detail'}}">
+                <a href="{{baseUrl}}/admin/app-detail">
+                    <i class="fa fa-database"></i> <span>App Detail</span>
+                </a>
+            </li>
+
+            <li class="treeview {{activeClass path '/admin/category-list'}} {{activeClass path '/admin/add-category'}}">
+                <a href="#">
+                    <i class="fa fa-database"></i> <span>Categories</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/category-list'}}"><a href="{{baseUrl}}/admin/category-list"><i class="fa fa-circle-o"></i>
+                            Category List</a></li>
+                    <li class="{{activeClass path '/admin/add-category'}}"><a href="{{baseUrl}}/admin/add-category"><i class="fa fa-circle-o"></i>Add New Category</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview {{activeClass path '/admin/subcategory-list'}} {{activeClass path '/admin/add-subcategory'}}">
+                <a href="#">
+                    <i class="fa fa-database"></i> <span>Sub Categories</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/subcategory-list'}}"><a href="{{baseUrl}}/admin/subcategory-list"><i class="fa fa-circle-o"></i>Sub
+                            Category List</a></li>
+                    <li class="{{activeClass path '/admin/add-subcategory'}}"><a href="{{baseUrl}}/admin/add-subcategory"><i class="fa fa-circle-o"></i>Add New Sub Category</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview {{activeClass path '/admin/scholarship-list'}} {{activeClass path '/admin/active-scholarship-list'}} {{activeClass path '/admin/inactive-scholarship-list'}} {{activeClass path '/admin/always-open-scholarship-list'}} {{activeClass path '/admin/add-scholarship'}}">
+                <a href="#">
+                    <i class="fa fa-list"></i> <span>Scholarships</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/scholarship-list'}}"><a href="{{baseUrl}}/admin/scholarship-list"><i class="fa fa-circle-o"></i>
+                            Scholarships List</a></li>
+                    <li class="{{activeClass path '/admin/active-scholarship-list'}}"><a href="{{baseUrl}}/admin/active-scholarship-list"><i class="fa fa-circle-o"></i>
+                        Active scholarships List</a></li>
+                    <li class="{{activeClass path '/admin/inactive-scholarship-list'}}"><a href="{{baseUrl}}/admin/inactive-scholarship-list"><i class="fa fa-circle-o"></i>
+                        Inactive scholarships List</a></li>
+                    <li class="{{activeClass path '/admin/always-open-scholarship-list'}}"><a href="{{baseUrl}}/admin/always-open-scholarship-list"><i class="fa fa-circle-o"></i>
+                        Always Open scholarships List</a></li>
+                    <li class="{{activeClass path '/admin/add-scholarship'}}"><a href="{{baseUrl}}/admin/add-scholarship"><i class="fa fa-circle-o"></i>Add New Scholarship</a></li>
+                </ul>
+            </li>
+
+            {{#compare role 'super_admin'}}
+            <li class="treeview {{activeClass path '/admin/admin-list'}} {{activeClass path '/admin/add-admin'}}">
+                <a href="#">
+                    <i class="fa fa-list"></i> <span>Admin</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/admin-list'}}"><a href="{{baseUrl}}/admin/admin-list"><i class="fa fa-circle-o"></i>Admin List</a></li>
+                    <li class="{{activeClass path '/admin/add-admin'}}"><a href="{{baseUrl}}/admin/add-admin"><i class="fa fa-circle-o"></i>Add New Admin</a></li>
+                </ul>
+            </li>
+            {{/compare}}
+            <!-- <li class="">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>User</span>
+                </a>
+            </li> -->
+
+            <li class="{{activeClass path '/admin/add-scholarship-via-file'}}">
+                <a href="{{baseUrl}}/admin/add-scholarship-via-file">
+                    <i class="fa fa-upload"></i> <span>Scholarship Via file</span>
+                </a>
+            </li>
+
+            <li class="{{activeClass path '/admin/add-user-via-file'}}">
+                <a href="{{baseUrl}}/admin/add-user-via-file">
+                    <i class="fa fa-upload"></i> <span>Student Via file</span>
+                </a>
+            </li>
+
+            <li class="{{activeClass path '/admin/upload-file'}}">
+                <a href="{{baseUrl}}/admin/upload-file">
+                    <i class="fa fa-file"></i> <span>Upload file</span>
+                </a>
+            </li>
+
+            <li class="treeview {{activeClass path '/admin/subject-list'}} {{activeClass path '/admin/add-subject'}}">
+                <a href="#">
+                    <i class="fa fa-list"></i> <span>Subject</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/subject-list'}}"><a href="{{baseUrl}}/admin/subject-list"><i class="fa fa-circle-o"></i>Subject
+                            List</a></li>
+                    <li class="{{activeClass path '/admin/add-subject'}}"><a href="{{baseUrl}}/admin/add-subject"><i class="fa fa-circle-o"></i>Add New Subject</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview {{activeClass path '/admin/master-account-list'}}">
+                <a href="#">
+                    <i class="fa fa-list"></i> <span>Master Account</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/master-account-list'}}"><a href="{{baseUrl}}/admin/master-account-list"><i class="fa fa-circle-o"></i>Master
+                            Account List</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview {{activeClass path '/admin/header-menu-list'}} {{activeClass path '/admin/add-header-menu'}}">
+                <a href="#">
+                    <i class="fa fa-list"></i> <span>Header or Search Menu</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/header-menu-list'}}"><a href="{{baseUrl}}/admin/header-menu-list"><i class="fa fa-circle-o"></i>
+                            Header or Search Menu List</a></li>
+                    <li class="{{activeClass path '/admin/add-header-menu'}}"><a href="{{baseUrl}}/admin/add-header-menu"><i class="fa fa-circle-o"></i>Add Header or Search
+                            Menu</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview {{activeClass path '/admin/best-scholarship-list'}} {{activeClass path '/admin/add-best-scholarship'}}">
+                <a href="#">
+                    <i class="fa fa-list"></i> <span>Best Scholarship</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/best-scholarship-list'}}"><a href="{{baseUrl}}/admin/best-scholarship-list"><i class="fa fa-circle-o"></i>Best
+                            Scholarship List</a></li>
+                    <li class="{{activeClass path '/admin/add-best-scholarship'}}"><a href="{{baseUrl}}/admin/add-best-scholarship"><i class="fa fa-circle-o"></i>Add New Best
+                            Scholarship</a></li>
+                </ul>
+            </li>
+
+
+            <li class="treeview {{activeClass path '/admin/api-user-list'}} {{activeClass path '/admin/add-api-user'}}">
+                <a href="#">
+                    <i class="fa fa-list"></i> <span>Api User</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/api-user-list'}}"><a href="{{baseUrl}}/admin/api-user-list"><i class="fa fa-circle-o"></i>Api
+                            User List</a></li>
+                    <li class="{{activeClass path '/admin/add-api-user'}}"><a href="{{baseUrl}}/admin/add-api-user"><i class="fa fa-circle-o"></i>Add New Api
+                            User</a></li>
+                </ul>
+            </li>
+
+            <li class="{{activeClass path '/admin/contact-list'}}">
+                <a href="{{baseUrl}}/admin/contact-list">
+                    <i class="fa fa-database"></i> <span>Contact List</span>
+                </a>
+            </li>
+
+            <li class="{{activeClass path '/admin/career-list'}}">
+                <a href="{{baseUrl}}/admin/career-list">
+                    <i class="fa fa-database"></i> <span>Career List</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="{{baseUrl}}/admin/logout">
+                    <i class="fa fa-sign-out"></i> <span>Logout</span>
+                </a>
+            </li>
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

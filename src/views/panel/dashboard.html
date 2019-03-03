@@ -1,0 +1,63 @@
+{{> panel/head headTitle = 'dashboard'}}
+
+{{> panel/header}}
+
+<section class="contact about text-center ">
+    {{#if user.parent_id}}
+    <h3 class="sub-heading">{{user.first_name}}'s Dashboard</h3>
+    {{else}}
+    <h3 class="sub-heading">Dashboard</h3>
+    {{/if}}
+
+    <!-- <p class="sub-para">My Account</p> -->
+    <div class="contact-form-wrapper dashboard-wrapper mt-4">
+        <div class="row justify-content-around">
+            {{#if user.parent_id}}
+            <!---------------- card start ---------------->
+            <div class="col-md-3 col-6">
+                <a href="{{baseUrl}}/matched-scholarship-list" class="scholarships-card dashboard-card text-center">
+                    <div class="mb-4 mt-2">
+                        <img src="{{publicPanelUrl}}/img/match-scholarship.png">
+                    </div>
+                    <div class="scholarships-card-detail">
+                        <p class="scholarships-card-detail-heading fs-18 mb-1">My Matched Scholarships</p>
+                        <p class="scholarships-card-detail-para niramit fs-14">Schoalrships as per your profile</p>
+                    </div>
+                </a>
+            </div>
+
+            <!---------------- card start ---------------->
+            <div class="col-md-3 col-6">
+                <a href="{{baseUrl}}/saved-scholarship-list" class="scholarships-card dashboard-card text-center">
+                    <div class="mb-4 mt-2">
+                        <img src="{{publicPanelUrl}}/img/primary-saved-scholarsihp.png">
+                    </div>
+                    <div class="scholarships-card-detail">
+                        <p class="scholarships-card-detail-heading fs-18 mb-1">My Saved Scholarships</p>
+                        <p class="scholarships-card-detail-para niramit fs-14">View Your Saved Projects</p>
+                    </div>
+                </a>
+            </div>
+            {{/if}}
+            <!---------------- card start ---------------->
+            <div class="col-md-3 col-6">
+                <a href="{{baseUrl}}/my-profile" class="scholarships-card dashboard-card text-center">
+                    <div class="mb-4 mt-2">
+                        <img src="{{publicPanelUrl}}/img/my-profile.png">
+                    </div>
+                    <div class="scholarships-card-detail">
+                        <p class="scholarships-card-detail-heading fs-18 mb-1">My Profile</p>
+                        <p class="scholarships-card-detail-para niramit fs-14">View Your Profile</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<br><br>
+
+
+{{> panel/footer}}
+{{> panel/footer-link}}

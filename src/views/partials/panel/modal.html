@@ -1,0 +1,441 @@
+<!-- ------------------ Login Modal start ------------ -->
+<div class="modal fade login-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body position-relative">
+        <button type="button" class="close close-modal-btn" data-dismiss="modal" aria-label="Close">
+          <img src="{{publicPanelUrl}}/img/error.svg" width="20px" class="">
+        </button>
+
+
+        <div class="row">
+          <div class="col-sm-6 bg-deepblue p-0">
+            <div class="modal-img">
+              <img src="{{publicPanelUrl}}/img/login.png">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="modal-form text-center">
+              <h3 class="sub-heading">Login</h3>
+
+              <div class="modal-form-wrapper text-left">
+                <div class="card-form-input-wrapper">
+
+
+                  <form id="login-form">
+                    <div class="row mr-form-top">
+                      <div class="col-12 ">
+                        <label>Email/Mobile</label>
+                        <input type="text" class="form-control" placeholder="type your email/mobile" name="email">
+                      </div>
+                    </div>
+                    <div class="row mr-form-top">
+                      <div class="col-12 ">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="type password" name="password">
+                      </div>
+                    </div>
+                    <div class="text-right">
+                      <p class="c-p" id="close-and-open-forgot-modal">Forgot password?</p>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-join mt-4">Login</button>
+                    </div>
+                  </form>
+                  <div class="text-center mt-2">
+                    <p><span class="deepskyblue c-p" id="close-and-open-login-with-otp-modal">Login with OTP</span></p>
+                    <p>If you don't have an account?&nbsp;
+                      <span class="deepskyblue c-p" id="close-and-open-register-modal">Register</span></p>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- forgot modal -->
+<div class="modal fade login-modal" id="forgotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body position-relative">
+        <button type="button" class="close close-modal-btn" data-dismiss="modal" aria-label="Close">
+          <img src="{{publicPanelUrl}}/img/error.svg" width="20px" class="">
+        </button>
+
+
+        <div class="row">
+          <div class="col-sm-6 bg-deepblue p-0">
+            <div class="modal-img">
+              <img src="{{publicPanelUrl}}/img/login.png">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="modal-form text-center">
+              <h3 class="sub-heading">Forgot password</h3>
+
+              <div class="modal-form-wrapper text-left">
+                <div class="form-data card-form-input-wrapper">
+
+
+                  <div class="alert alert-success hide-element">
+                  </div>
+                  <div class="alert alert-danger hide-element">
+                  </div>
+
+
+                  <div class="row mr-form-top">
+                    <div class="col-12">
+                      <label>Email/Mobile</label>
+                      <input type="text" class="form-control" placeholder="type your email/mobile" name="mobile" id="forgot-email-mobile-input">
+                    </div>
+                  </div>
+
+                  <div class="row mr-form-top">
+                    <div class="col-8">
+                      <label>OTP</label>
+                      <input type="number" class="form-control" placeholder="Enter otp" name="otp" id="login-otp-input">
+                    </div>
+                    <div class="col-auto p-0">
+                      <button class="btn btn-join btn-join-outline mt-3 fs-10 on-get-mobile-otp" data-tag="forgot-otp">Get
+                        OTP</button>
+                    </div>
+                  </div>
+
+                  <div class="row mr-form-top">
+                    <div class="col-12">
+                      <label>Password</label>
+                      <input type="password" class="form-control" placeholder="type your password" name="password">
+                    </div>
+                  </div>
+
+                  <div class="row mr-form-top">
+                    <div class="col-12">
+                      <label>Confirm password</label>
+                      <input type="password" class="form-control" placeholder="type your password" name="confirm_password">
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-join mt-4" id="on-forgot-password">Forgot</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- login with otp -->
+<div class="modal fade login-modal" id="loginWithOtpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body position-relative">
+        <button type="button" class="close close-modal-btn" data-dismiss="modal" aria-label="Close">
+          <img src="{{publicPanelUrl}}/img/error.svg" width="20px" class="">
+        </button>
+
+
+        <div class="row">
+          <div class="col-sm-6 bg-deepblue p-0">
+            <div class="modal-img">
+              <img src="{{publicPanelUrl}}/img/login.png">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="modal-form text-center">
+              <h3 class="sub-heading">Login with OTP</h3>
+
+              <div class="modal-form-wrapper text-left">
+                <div class="card-form-input-wrapper">
+
+                  <div class="alert alert-success hide-element ">
+                    We have sent OTP on your mobile.
+                  </div>
+
+                  <!-- <form id="login-with-otp-form"> </form> -->
+                  <div class="row mr-form-top">
+                    <div class="col-12">
+                      <label>Mobile</label>
+                      <input type="text" class="form-control" placeholder="type your mobile" name="mobile" id="login-otp-mobile-input">
+                    </div>
+                  </div>
+
+                  <!-- <div class="text-center">
+                    <button type="submit" class="btn btn-join mt-4">Get OTP</button>
+                  </div> -->
+
+
+                  <div class="row mr-form-top">
+                    <div class="col-8">
+                      <label>OTP</label>
+                      <input type="number" class="form-control" placeholder="Enter otp" name="otp" id="login-otp-input">
+                    </div>
+                    <div class="col-auto p-0">
+                      <button class="btn btn-join btn-join-outline mt-3 fs-10 on-get-mobile-otp" data-tag="login">Get
+                        OTP</button>
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-join mt-4" id="on-otp-with-login">Login</button>
+                  </div>
+
+                  <div class="text-center mt-2">
+                    <p><span class="deepskyblue c-p" data-dismiss="modal" id="close-and-open-login-with-password-modal">Login
+                        with password</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<!-- ------------------ Login Modal Closed ------------ -->
+
+
+<!-- ------------------ Signin Modal start ------------ -->
+<div class="modal fade login-modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <button type="button" class="close close-modal-btn" data-dismiss="modal" aria-label="Close">
+          <img src="{{publicPanelUrl}}/img/error.svg" width="20px" class="">
+        </button>
+        <div class="row">
+          <div class="col-md-5 bg-deepblue p-0">
+            <div class="modal-img">
+              <img src="{{publicPanelUrl}}/img/login.png">
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="modal-form text-center px-0">
+              <h3 class="sub-heading">Register</h3>
+              <div class="modal-form-wrapper text-left">
+                <form id="registration-form">
+                  <div class="card-form-input-wrapper">
+
+
+                    <div class="row mr-form-top">
+                      <div class="col-6 ">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" placeholder="type your first name" name="first_name">
+                      </div>
+                      <div class="col-6 ">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" placeholder="type your last name" name="last_name">
+                      </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                      <div class="col-6">
+                        <label>Mobile no.</label>
+                        <input type="text" class="form-control" placeholder="type your mobile" name="mobile">
+                      </div>
+                      <div class="col-6">
+                        <label>Email</label>
+                        <input type="text" class="form-control" placeholder="type your email" name="email">
+                      </div>
+                    </div>
+
+
+                    <div class="row mr-form-top">
+                      <div class="col-6">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="type your password" name="password">
+                      </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                      <div class="col-12">
+                        <!-- <div class=""> -->
+                        <label class="montainer position-relative fs-16">
+                          I agree with <a href="{{baseUrl}}/term-and-conditions" target="_blank">term and conditions</a>
+                          <input type="checkbox" name="tnc">
+                          <span class="checkmark"></span>
+                        </label>
+                        <!-- </div> -->
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-join mt-4">Register</button>
+                    </div>
+                    <div class="text-center mt-4">
+                      <p>If you already have an account?&nbsp;
+                        <span class="deepskyblue c-p" id="close-and-open-login-modal">Login</span></p>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ------------------ Signin Modal Closed ------------ -->
+
+
+<!-- verify mobile modal -->
+<div class="modal fade login-modal" id="verifyMobileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body position-relative">
+        <button type="button" class="close close-modal-btn" data-dismiss="modal" aria-label="Close">
+          <img src="{{publicPanelUrl}}/img/error.svg" width="20px" class="">
+        </button>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="modal-form text-center">
+              <h3 class="sub-heading fs-24">Verify your mobile</h3>
+
+              <div class="modal-form-wrapper text-left">
+                <div class="card-form-input-wrapper">
+                  <div class="alert alert-success hide-element ">
+                    We have sent OTP on your mobile.
+                  </div>
+                  <div class="row mr-form-top">
+                    <div class="col-12">
+                      <label>Mobile</label>
+                      <input type="text" readonly class="form-control" placeholder="type your mobile" value="{{user.mobile}}">
+                    </div>
+                  </div>
+
+                  <div class="row mr-form-top">
+                    <div class="col-8">
+                      <label>OTP</label>
+                      <input type="number" class="form-control" placeholder="Enter otp" name="otp">
+                    </div>
+                    <div class="col-auto p-0">
+                      <button class="btn btn-join btn-join-outline mt-3 fs-10 on-get-mobile-otp" data-tag="verify-mobile">Get
+                        OTP</button>
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-join mt-4" data-tag="mobile" id="on-verify-mobile">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- verify email modal -->
+<div class="modal fade login-modal" id="verifyEmailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body position-relative">
+        <button type="button" class="close close-modal-btn" data-dismiss="modal" aria-label="Close">
+          <img src="{{publicPanelUrl}}/img/error.svg" width="20px" class="">
+        </button>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="modal-form text-center">
+              <h3 class="sub-heading fs-24">Verify your Email</h3>
+
+              <div class="modal-form-wrapper text-left">
+                <div class="card-form-input-wrapper">
+                  <div class="alert alert-success hide-element ">
+                    We have sent OTP on your email.
+                  </div>
+                  <div class="row mr-form-top">
+                    <div class="col-12">
+                      <label>Email</label>
+                      <input type="text" readonly class="form-control" placeholder="type your Email" value="{{user.email}}">
+                    </div>
+                  </div>
+
+                  <div class="row mr-form-top">
+                    <div class="col-8">
+                      <label>OTP</label>
+                      <input type="number" class="form-control" placeholder="Enter otp" name="otp">
+                    </div>
+                    <div class="col-auto p-0">
+                      <button class="btn btn-join btn-join-outline mt-3 fs-10 on-get-email-otp" data-tag="verify-email">Get
+                        OTP</button>
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-join mt-4" data-tag="email" id="on-verify-email">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

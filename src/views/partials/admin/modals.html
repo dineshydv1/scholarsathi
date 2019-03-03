@@ -1,0 +1,27 @@
+ <!-- Modal -->
+ <div class="modal fade" id="delete-all-modal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div class="modal-body">
+                <p>Selected Items</p>
+                <ul class="delete-all-list-group list-group"></ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <form class="d-ib" action="{{baseUrl}}/admin/delete-all-list-by-ids" method="POST" enctype="application/x-www-form-urlencoded">
+                    <input type="hidden" id="selected-delete-ids-table" name="ids">
+                    <input type="hidden" id="selected-delete-img-table" name="img">
+                    <input type="hidden" id="selected-delete-document-table" name="document">
+                    <input type="hidden" id="selected-delete-type-table" name="type">
+                    <button type="submit" class="btn btn-danger" id="on-delete-selected-item-btn">Delete</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

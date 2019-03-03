@@ -1,0 +1,99 @@
+{{> admin/head headTitle = 'add scholarship via file'}}
+<div class="wrapper">
+    {{> admin/header}}
+
+    {{> admin/sidenav}}
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="row">
+                <div class="col-md-6 content-header pt-0">
+                    <h1>
+                        Scolarship
+                        <!-- <small>Control panel</small> -->
+                    </h1>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a href="{{publicUrl}}/scholarship-data.xls" class="btn btn-primary" download>Download Demo File</a>
+                </div>
+            </div>
+            <!-- <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol> -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6 col-md-offset-3">
+
+                    {{#if success}}
+
+                    {{#each success}}
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{this}}
+                    </div>
+                    {{/each}}
+                    {{else if error}}
+
+                    {{#each error}}
+                    <div class="alert alert-danger">
+                        <strong>Danger!</strong> {{this}}
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Add new scholarship</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form role="form" action="{{baseUrl}}/admin/add-scholarship-via-file" method="POST" enctype="multipart/form-data">
+                            <div class="box-body">
+
+
+                                <div class="form-group">
+                                    <label for="document">Upload File</label>
+                                    <input type="file" id="document" name="document">
+                                    <!-- <p class="help-block">Example block-level help text here.</p> -->
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box -->
+
+
+
+                </div>
+                <!--/.col (left) -->
+
+            </div>
+            <!-- /.row -->
+
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    {{> admin/footer}}
+
+
+
+</div>
+<!-- ./wrapper -->
+
+{{> admin/footer-link}}

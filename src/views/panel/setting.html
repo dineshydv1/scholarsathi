@@ -1,0 +1,182 @@
+{{> panel/head headTitle = 'my profile'}}
+
+{{> panel/header}}
+
+<section class="contact about text-center ">
+    <h3 class="sub-heading">My Account</h3>
+    <!-- <p class="sub-para">Lorem ipsum dolar sit amet adipiscing</p> -->
+
+    <div class="account-wrapper comman-pad">
+        <div class="row">
+            <div class="col-lg-4">
+                {{> panel/profile-left-card}}
+            </div>
+            <div class="col-lg-8">
+                <div class="my-profile">
+                    <div class="row">
+                        <div class="col-4">
+                            <p class="fs-20 m-0">My Setting</p>
+                            <hr class="small-line">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-10 p-0">
+                            {{#each success}}
+                            <div class="alert alert-success p-2 mb-2">
+                                <strong>Success!</strong>&nbsp; {{this}}
+                            </div>
+                            {{/each}}
+
+                            {{#each error}}
+                            <div class="alert alert-danger p-2 mb-2">
+                                <strong>Alert!</strong>&nbsp; {{this}}
+                            </div>
+                            {{/each}}
+
+
+                        </div>
+                    </div>
+
+                    <div class="accordion" id="accordionExample">
+
+                        <!-- change mobile -->
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3">
+                                        Change
+                                        Mobile
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="card-form-input-wrapper acc-wrapper">
+                                        {{#if user.mobile}}
+                                        <div class="row mr-form-top">
+                                            <div class="col-sm-6">
+                                                <label>Current Mobile</label>
+                                                <input type="number" readonly class="form-control" name="old_mobile"
+                                                    value="{{user.mobile}}">
+                                            </div>
+                                        </div>
+                                        {{/if}}
+                                        <div class="row mr-form-top">
+                                            <div class="col-sm-6">
+                                                <label>New Mobile</label>
+                                                <input type="number" class="form-control" name="mobile">
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-join mt-3" id="on-change-mobile">SAVE</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- change email -->
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                                        aria-expanded="true" aria-controls="collapseTwo">
+                                        <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3">Change
+                                        Email
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="card-form-input-wrapper acc-wrapper">
+                                        {{#if user.email}}
+                                        <div class="row mr-form-top">
+                                            <div class="col-sm-6">
+                                                <label>Current Email</label>
+                                                <input type="text" readonly class="form-control" name="old_email" value="{{user.email}}">
+                                            </div>
+                                        </div>
+                                        {{/if}}
+                                        <div class="row mr-form-top">
+                                            <div class="col-sm-6">
+                                                <label>New Email</label>
+                                                <input type="text" class="form-control" name="email">
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-join mt-3" id="on-change-email">SAVE</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{#compare user.parent_id null}}
+                        <!-- change password -->
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour"
+                                        aria-expanded="true" aria-controls="collapseFour">
+                                        <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3">Change
+                                        Password
+                                    </button>
+                                </h5>
+                            </div>
+
+
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="card-form-input-wrapper acc-wrapper">
+                                        <div class="row mr-form-top">
+                                            <div class="col-sm-6">
+                                                <label>Old Password</label>
+                                                <input type="password" class="form-control" name="password">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mr-form-top">
+                                            <div class="col-sm-6">
+                                                <label>New Password</label>
+                                                <input type="password" class="form-control" name="new_password">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>New Confirm Password</label>
+                                                <input type="password" class="form-control" name="new_confirm_password">
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-join mt-3" id="on-change-password-btn">SAVE</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/compare}}
+
+
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<br><br>
+
+
+
+{{> panel/footer}}
+{{> panel/footer-link}}

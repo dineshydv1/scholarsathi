@@ -1,0 +1,67 @@
+{{> panel/head headTitle = 'Scholarship history list'}}
+
+{{> panel/header}}
+
+<section class="contact about text-center ">
+    <h3 class="sub-heading">My Account</h3>
+    <!-- <p class="sub-para">Lorem ipsum dolar sit amet adipiscing</p> -->
+
+    <div class="account-wrapper comman-pad">
+        <div class="row">
+            <div class="col-lg-4">
+                {{> panel/profile-left-card}}
+            </div>
+            <div class="col-lg-8">
+                <div class="my-profile">
+                    <p class="fs-20 m-0">My Scholarship history List</p>
+                    <hr class="small-line mb-2">
+                    <p class="fs-18 deepskyblue">Go to My Account section to add Scholarship history.</p>
+                    <div class="saved-scholarship">
+                        {{#each scholarshipHistory as |item|}}
+                        <!----------- saved card start ------------>
+                        <div class="saved-card">
+                            <div class="row" data-row="my-row">
+                                <!-- <div class="col-sm-3 d-flex">
+                                    <div class="saved-card-img">
+                                        <img src="http://localhost:3000/public/panel/img/circle-logo.png" width="70%">
+                                    </div>
+                                </div> -->
+                                <div class="col-sm-8">
+                                    <div class="saved-card-detail">
+                                        <p class="saved-card-detail-heading" data-name="{{item.name}}"> {{item.name}}
+                                        </p>
+                                        <input type="hidden" data-id="{{item.id}}" value="{{item.id}}">
+                                        <div class="saved-card-detail-row">
+                                            <p class="grey mb-0"><b>Source</b>: <span data-source="{{item.source}}">{{item.source}}</span></p>
+                                            <p class="grey mb-0"><b>received year</b>: <span data-year="{{item.year}}">{{item.year}}</span></p>
+                                            {{#if item.description}}
+                                            <p class="grey mb-0"><b>Description</b>: <span data-description="{{item.description}}">{{item.description}}</span></p>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 text-center d-flex align-items-center justify-content-center">
+                                    <div class="saved-card-deadline">
+                                        <!-- <p>Scholarship received year </p>
+                                        <p class="grey fw-700 fs-14">{{item.year}}</p> -->
+                                        <button class="btn btn-join mb-3 d-flex" id="on-edit-scholarship-history-view">Edit</button>
+                                        <a href="{{baseUrl}}/delete-scholarship-history/{{item.id}}" class="btn btn-join btn-danger d-flex">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!----------- saved card closed ------------>
+                        {{/each}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<br><br>
+
+{{> panel/footer}}
+{{> panel/footer-link}}

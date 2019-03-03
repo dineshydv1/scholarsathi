@@ -1,0 +1,151 @@
+{{> admin/head headTitle = 'add app detail'}}
+<div class="wrapper">
+    {{> admin/header}}
+
+    {{> admin/sidenav}}
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                App Detail
+                <!-- <small>Control panel</small> -->
+            </h1>
+            <!-- <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol> -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-8 col-md-offset-2">
+
+                    {{#if success}}
+
+                    {{#each success}}
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{this}}
+                    </div>
+                    {{/each}}
+                    {{else if error}}
+
+                    {{#each error}}
+                    <div class="alert alert-danger">
+                        <strong>Danger!</strong> {{this}}
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Add App Detail</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form role="form" action="{{baseUrl}}/admin/update-app-detail" method="POST" enctype="multipart/form-data">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="email">email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder=""
+                                        value="{{data.email}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile">Mobile</label>
+                                    <input type="mobile" class="form-control" id="mobile" name="mobile" placeholder=""
+                                        value="{{data.mobile}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <input type="text" class="form-control" id="location" name="location" placeholder=""
+                                        value="{{data.location}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="footer_text">Footer Text</label>
+                                    <input type="text" class="form-control" id="footer_text" name="footer_text"
+                                        placeholder="" value="{{data.footer_text}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="facebook">Facebook Link</label>
+                                    <input type="text" class="form-control" id="facebook" name="facebook" placeholder=""
+                                        value="{{data.facebook}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="twitter">Twitter Link</label>
+                                    <input type="text" class="form-control" id="twitter" name="twitter" placeholder=""
+                                        value="{{data.twitter}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin">Linkedin Link</label>
+                                    <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder=""
+                                        value="{{data.linkedin}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tnc">Term and Conditions</label>
+                                    <textarea type="text" class="form-control" id="tnc" name="tnc" placeholder="Enter category name">{{data.tnc}}</textarea>
+                                    <script>
+                                        CKEDITOR.replace('tnc');
+                                    </script>
+                                </div>
+                                <div class="form-group">
+                                    <label for="welcome_email">Welcome Email</label>
+                                    <textarea type="text" class="form-control" id="welcome_email" name="welcome_email"
+                                        placeholder="Enter category name">{{data.welcome_email}}</textarea>
+                                    <script>
+                                        CKEDITOR.replace('welcome_email', {
+                                            extraPlugins: 'colorbutton,colordialog'
+                                        });
+                                    </script>
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box -->
+
+
+
+                </div>
+                <!--/.col (left) -->
+
+            </div>
+            <!-- /.row -->
+
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    {{> admin/footer}}
+
+
+
+</div>
+<!-- ./wrapper -->
+
+<script>
+    $('form').submit(function (e) {
+        // e.preventDefault();
+        for (instance in CKEDITOR.instances) {
+            var val = CKEDITOR.instances[instance].getData();
+            $(`#${instance}`).val(val);
+        }
+    });
+</script>
+
+{{> admin/footer-link}}

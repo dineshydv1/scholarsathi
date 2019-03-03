@@ -1,0 +1,516 @@
+<div class="accordion" id="accordionExample">
+
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3"> Personal Information
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="card-form-input-wrapper acc-wrapper">
+
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div class="profile-avatar-div mb-2">
+                                <img src="{{user.img}}" onerror="this.src='{{publicPanelUrl}}/img/user.png'">
+                                <!-- <input type="hidden" name="img_url" value="{{user.img}}"> -->
+                            </div>
+                            <label class="profile-change-text mb-2" for="profile-img">
+                                change profile image
+                            </label>
+                            <form id="profile-image-form" action="{{baseUrl}}/profile-update/profile-image/{{user.id}}"
+                                method="POST" enctype="multipart/form-data">
+                                <input id="profile-img" type="file" name="file" class="input-type-file" onchange="javascript:document.getElementById('profile-image-form').submit();">
+                                <input type="hidden" name="img_url" value="{{user.img}}">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" name="first_name" value="{{user.first_name}}">
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="last_name" value="{{user.last_name}}">
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label for="sel1">Gender</label>
+                            <select class="form-control" name="gender_id">
+                                <option value="">--select gender--</option>
+                                {{#each categories.gender.subcategories as |item|}}
+                                <option value="{{item.id}}" {{selectedSelectOption item.id ../user.gender_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label>Date Of Birth</label>
+                            <input type="date" class="form-control" name="date_of_birth" value="{{dateFormat user.date_of_birth 'YYYY-MM-DD'}}">
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Address</label>
+                            <input type="text" class="form-control" name="address" value="{{user.address}}">
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label for="sel3">State</label>
+                            <select class="form-control state-change" name="state_id">
+                                <option value="">--select state --</option>
+                                {{#each state as |item|}}
+                                <option value="{{item.id}}" {{selectedSelectOption item.id ../user.state_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label for="sel2">City</label>
+                            <select class="form-control profile-city" name="city_id">
+                                <option value="">--select city --</option>
+                                {{#each city as |item|}}
+                                <option value="{{item.id}}" {{selectedSelectOption item.id ../user.city_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label>Pincode</label>
+                            <input type="number" class="form-control" name="pincode" value="{{user.pincode}}">
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Mobile No.</label>
+                            <input type="text" readonly class="form-control" value="{{user.mobile}}">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label>Email</label>
+                            <input type="email" readonly class="form-control" value="{{user.email}}">
+                        </div>
+
+                    </div>
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Category</label>
+                            <select class="form-control" name="category_id">
+                                <option value="">--select category --</option>
+                                {{#each categories.category.subcategories as |item|}}
+                                <option value="{{item.id}}" {{selectedSelectOption item.id ../user.category_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Physically Challenged</label>
+                            <select class="form-control" name="physical_challenge_id">
+                                <!-- <option value="">--select physically challenged --</option> -->
+                                <option value="">NO</option>
+                                <option value="{{physicalChallengeId}}"
+                                    {{selectedSelectOption physicalChallengeId user.physical_challenge_id}}>YES</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Annual Family income</label>
+                            <!-- <input type="number" class="form-control" name="annual_family_income" value="{{user.annual_family_income}}"> -->
+                            <select class="form-control" name="annual_family_income">
+                                <option value="">--select preference for scholarship --</option>
+                                {{#each annualIncome as |item|}}
+                                <option value="{{item}}"
+                                    {{selectedSelectOption item ../user.annual_family_income}}>{{item}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Preference for scholarship</label>
+                            <select class="form-control" name="preference_scholarship_id">
+                                <option value="">--select preference for scholarship --</option>
+                                {{#each categories.country.subcategories as |item|}}
+                                <option value="{{item.id}}"
+                                    {{selectedSelectOption item.id ../user.preference_scholarship_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6 ">
+                            <label for="sel4">Religion</label>
+                            <select class="form-control" name="religion_id">
+                                <option value="">--select religion --</option>
+                                {{#each categories.religion.subcategories as |item|}}
+                                <option value="{{item.id}}" {{selectedSelectOption item.id ../user.religion_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-12 mb-3">
+                            <label>Interest</label>
+                        </div>
+                        {{#each categories.type.subcategories as |item|}}
+                        <div class="col-sm-6">
+                            <div class="mb-2">
+                                <label class="montainer position-relative">
+                                    {{item.name}}
+                                    <input type="checkbox" value="{{item.id}}" name="interest"
+                                        {{multiCheckedCheckbox item.id ../userInterest}}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+
+
+
+
+
+                    <button class="btn btn-join mt-3" id="on-personal-data-update">SAVE</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3"> Education Information
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="card-form-input-wrapper acc-wrapper">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Present Class/Degree</label>
+                            <select class="form-control education-change" name="qualification_id">
+                                <option value="">--select class --</option>
+                                {{#each categories.education.subcategories as |item|}}
+                                <option value="{{item.id}}" {{selectedSelectOption item.id ../user.qualification_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Subject Stream</label>
+                            <select class="form-control subject-stream" name="subject_id">
+                                <option value="">--select subject --</option>
+                                {{#each subject as |item|}}
+                                <option value="{{item.id}}" {{selectedSelectOption item.id ../user.subject_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Passing Year</label>
+                            <input type="number" class="form-control" name="passing_year" value="{{user.passing_year}}">
+
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label>Passing Month</label>
+                            <select class="form-control" name="passing_month" value="{{user.passing_month}}">
+                                <option value=''>--Select Month--</option>
+                                {{#each months as |item|}}
+                                <option value="{{item}}" {{selectedSelectOption item ../user.passing_month}}>{{item}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <p>Institute/School/College Details</p>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Name Of Institute</label>
+                            <input type="text" class="form-control" name="institute_name" value="{{user.institute_name}}">
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label>Pincode</label>
+                            <input type="text" class="form-control" name="institute_pincode" value="{{user.institute_pincode}}">
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6 ">
+                            <label>State Of Institute</label>
+                            <select class="form-control state-change" name="institute_state_id">
+                                <option value="">--select state --</option>
+                                {{#each state as |item|}}
+                                <option value="{{item.id}}" {{selectedSelectOption item.id ../user.institute_state_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>City Of Institute</label>
+                            <select class="form-control education-city" name="institute_city_id">
+                                <option value="">--select city --</option>
+                                {{#each city as |item|}}
+                                <option value="{{item.id}}" {{selectedSelectOption item.id ../user.institute_city_id}}>{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-join mt-3" id="on-education-data-update">SAVE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3"> Interest
+                </button>
+            </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="card-form-input-wrapper acc-wrapper">
+                    <div class="row">
+                        {{#each categories.type.subcategories as |item|}}
+                        <div class="col-sm-6">
+                            <div class="mb-2">
+                                <label class="montainer position-relative">
+                                    {{item.name}}
+                                    <input type="checkbox" value="{{item.id}}" name="interest"
+                                        {{multiCheckedCheckbox item.id ../userInterest}}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <button class="btn btn-join mt-3" id="on-interest-data-update">SAVE</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3"> Documents
+                </button>
+            </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>Select document name from below dropdown menu and then click on "CHOOSE FILE" and select file from
+                    your computer, click on "UPLOAD" button.
+                    <!-- and after uploading all documents and click on "SAVE" to complete
+                the uploading -->
+                </p>
+                <form id="user-document-form" action="{{baseUrl}}/profile-update/add-user-document/{{user.id}}" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="card-form-input-wrapper acc-wrapper">
+
+                        <div class="row mr-form-top" data-row="document-row">
+                            <div class="col-sm-6">
+                                <label>Select Document</label>
+                                <select class="form-control" name="doc_name">
+                                    <option value="">--Select Document Name--</option>
+                                    <optgroup label="Personal Documents">
+                                        <option value="Passport size photograph" class="">Passport size photograph</option>
+                                        <option value="Age Proof" class="">Age Proof</option>
+                                        <option value="Identity Proof" class="">Identity Proof</option>
+                                        <option value="Family Income Proof" class="">Family Income Proof</option>
+                                        <option value="Address Proof / Domicile / Residential certificate/Telephone bill"
+                                            class="">Address
+                                            Proof / Domicile / Residential certificate/Telephone bill</option>
+                                        <option value="Birth certificate" class="">Birth certificate</option>
+                                        <option value="PAN Card" class="">PAN Card</option>
+
+                                    </optgroup>
+                                    <optgroup label="Educational Documents">
+
+                                        <option value="10th Marksheet" class="">10th Marksheet</option>
+                                        <option value="12th Marksheet" class="">12th Marksheet</option>
+                                        <option value="Graduation Marksheet" class="">Graduation Marksheet</option>
+                                        <option value="PG Degree" class="">PG Degree</option>
+                                        <option value="Phd Degree" class="">Phd Degree</option>
+                                        <option value="Admission Letter" class="">Admission Letter</option>
+                                        <option value="Diploma Certificate" class="">Diploma Certificate</option>
+                                        <option value="Latest school/college fee receipt" class="">Latest
+                                            school/college fee
+                                            receipt</option>
+                                        <option value="Student ID proof" class="">Student ID proof</option>
+                                        <option value="Last class marksheet" class="">Last class marksheet</option>
+                                    </optgroup>
+                                    <optgroup label="Bank Documents">
+
+                                        <option value="Bank Letter (Signed)" class="">Bank Letter (Signed)</option>
+                                        <option value="Cancelled cheque" class="">Cancelled cheque</option>
+                                        <option value="Bank passbook" class="">Bank passbook</option>
+                                    </optgroup>
+                                    <optgroup label="Scholars Documents">
+                                        <option value="Scholar Undertaking form" class="">Scholar undertaking form</option>
+                                        <option value="Scholar registration form" class="">Scholar registration form</option>
+                                    </optgroup>
+                                    <optgroup label="Extra Documents">
+
+                                        <option value="Caste Certificate" class="">Caste Certificate</option>
+                                        <option value="Others" class="">Others</option>
+                                        <option value="Application form" class="">Application form</option>
+                                        <option value="Hospital summary report" class="">Hospital summary report</option>
+                                        <option value="Special category" class="">Special category</option>
+                                        <option value="Principal's recommendation letter" class="">Principal's
+                                            recommendation
+                                            letter</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 ">
+                                <label>Chhose File</label>
+                                <input type="file" class="form-control" name="file">
+                            </div>
+                        </div>
+
+                        <div class="row mr-form-top" style="display: none">
+                            <div class="col-sm-6">
+                                <label>Enter document name</label>
+                                <input type="text" class="form-control" name="doc_name_other">
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-join mt-3">UPLOAD</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3"> Entrance Exam
+                </button>
+            </h5>
+        </div>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="card-form-input-wrapper acc-wrapper">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Entrance exam name</label>
+                            <select class="form-control" name="name">
+                                <option value="Common Addmission Test [CAT]">Common Addmission Test [CAT]</option>
+                                <option value="Xaviers Admission test [XAT]">Xaviers Admission test [XAT]</option>
+                                <option value="IIT-Jee">IIT-Jee</option>
+                                <option value="AIIMS">AIIMS</option>
+                                <option value="CLAT">CLAT</option>
+                                <option value="GRE">GRE</option>
+                                <option value="GMAT">GMAT</option>
+                                <option value="TOEFL">TOEFL</option>
+                                <option value="SAT">SAT</option>
+                                <option value="CET">CET</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label>Level</label>
+                            <select class="form-control" name="level">
+                                <option value="State">State</option>
+                                <option value="National">National</option>
+                                <option value="International">International</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Qualification</label>
+                            <input type="text" class="form-control" name="qualification">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Occupation</label>
+                            <input type="text" class="form-control" name="occupation">
+                        </div>
+                    </div>
+
+                    <button class="btn btn-join mt-3" id="on-entrance-exam-data-update">SAVE</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3"> Scholarship history
+                </button>
+            </h5>
+        </div>
+        <div id="collapseSeven" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="card-form-input-wrapper acc-wrapper">
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <label>Scholarship Name</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label>Source</label>
+                            <select class="form-control" name="source">
+                                <option value="Private">Private</option>
+                                <option value="Government">Government</option>
+                                <option value="NGO">NGO</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>scholarship received in year</label>
+                            <input type="number" class="form-control" name="year" placeholder="ex - 2016">
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label>Description</label>
+                            <input type="text" class="form-control" name="description">
+                        </div>
+                    </div>
+
+                    <button class="btn btn-join mt-3" id="on-scholarship-history-data-update">SAVE</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,153 @@
+{{> admin/head headTitle = 'update admin'}}
+<div class="wrapper">
+    {{> admin/header}}
+
+    {{> admin/sidenav}}
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="change-password" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change password</h4>
+                </div>
+                <form role="form" action="{{baseUrl}}/admin/change-admin-password/{{data.id}}" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">change</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="row">
+                <div class="col-md-6 content-header pt-0">
+                    <h1>
+                        Update admin
+                        <!-- <small>Control panel</small> -->
+                    </h1>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#change-password">Change password</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6 col-md-offset-3">
+
+                    {{#if success}}
+
+                    {{#each success}}
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{this}}
+                    </div>
+                    {{/each}}
+                    {{else if error}}
+
+                    {{#each error}}
+                    <div class="alert alert-danger">
+                        <strong>Danger!</strong> {{this}}
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Update admin</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form role="form" action="{{baseUrl}}/admin/update-admin/{{data.id}}" method="POST" enctype="multipart/form-data">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required placeholder="Enter name"
+                                        value="{{data.name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter email"
+                                        value="{{data.email}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile">Mobile</label>
+                                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile"
+                                        value="{{data.mobile}}">
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="password">password</label>
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        placeholder="Enter password" value="{{data.password}}">
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Select type</label><br>
+                                    {{#each adminRoles as |role index|}}
+                                    <label style="min-width: 30%;">
+                                        <input type="radio" {{checkedSingleOption role.id ../data.role_id}} value="{{role.id}}"
+                                            name="role_id">
+                                        {{role.name}}
+                                    </label>
+                                    {{/each}}
+                                </div>
+                                <div class="form-group">
+                                    <label for="file">Upload Image</label>
+                                    <input type="file" id="file" name="file">
+                                    <!-- <p class="help-block">Example block-level help text here.</p> -->
+                                </div>
+                                <input type="hidden" name="img_url" value="{{data.img}}">
+                            </div>
+                            {{#if data.img}}
+                            <img width="100px" height="100px" src="{{baseUrl}}{{data.img}}">
+                            {{/if}}
+                            <!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box -->
+
+
+
+                </div>
+                <!--/.col (left) -->
+
+            </div>
+            <!-- /.row -->
+
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    {{> admin/footer}}
+
+
+
+</div>
+<!-- ./wrapper -->
+
+{{> admin/footer-link}}

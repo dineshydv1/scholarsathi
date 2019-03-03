@@ -1,0 +1,56 @@
+<footer>
+
+	<div class="footer-container">
+		<div class="row">
+			<div class="col-md-3 col-6">
+				<img src="{{publicPanelUrl}}/img/logo.png" class="footer-logo">
+				<p class="footer-about niramit">{{appDetail.footer_text}}</p>
+			</div>
+			<div class="col-md-3 col-6">
+				<div class="footer-list-wrapper">
+					<p class="footer-list-head">WEBSITE LINKS</p>
+					<a href="{{baseUrl}}/scholarship-list" class="footer-list-item">All Scholarships</a>
+					<a href="{{baseUrl}}/about-us" class="footer-list-item">About Us</a>
+					<a href="{{baseUrl}}/contact-us" class="footer-list-item">Contact Us</a>
+					<a href="{{baseUrl}}/careers" class="footer-list-item">Careers</a>
+					<a href="{{baseUrl}}/term-and-conditions" class="footer-list-item">Term And Conditions</a>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-6">
+				<div class="footer-list-wrapper">
+					<p class="footer-list-head"> FOLLOW US</p>
+					<a href="{{socialUrl appDetail.facebook}}" class="footer-list-item d-flex align-items-center"><img src="{{publicPanelUrl}}/img/footer-fb.svg"
+						 class="mr-3">Facebook</a>
+					<a href="{{socialUrl appDetail.twitter}}" class="footer-list-item d-flex align-items-center"><img src="{{publicPanelUrl}}/img/footer-twitter.svg"
+						 class="mr-3">Twitter</a>
+
+					<a href="{{socialUrl appDetail.linkedin}}" class="footer-list-item d-flex align-items-center"><img src="{{publicPanelUrl}}/img/footer-linkedin.svg"
+						 class="mr-3">Linked In</a>
+
+				</div>
+			</div>
+
+			<div class="col-md-3 col-6">
+				<div class="footer-list-wrapper">
+					<p class="footer-list-head"> GET IN TOUCH</p>
+					{{#if appDetail.location}}
+					<p class="footer-list-item d-flex align-items-start"><img src="{{publicPanelUrl}}/img/footer-placeholder.png"
+						 class=" mt-0 mr-3 line-height-small">{{appDetail.location}}</p>
+					{{/if}}
+					{{#if appDetail.mobile}}
+					<p class="footer-list-item d-flex align-items-center"><img src="{{publicPanelUrl}}/img/footer-phone.png" class="mr-3">{{appDetail.mobile}}</p>
+					{{/if}}
+					{{#if appDetail.email}}
+					<p class="footer-list-item d-flex align-items-center"><img src="{{publicPanelUrl}}/img/footer-envelope.png" class="mr-3">{{appDetail.email}}</p>
+					{{/if}}
+				</div>
+			</div>
+
+
+
+
+		</div>
+	</div>
+
+</footer>

@@ -1,0 +1,142 @@
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3"> Personal Information
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="card-form-input-wrapper acc-wrapper">
+
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div class="profile-avatar-div mb-2">
+                                <img src="{{user.img}}" onerror="this.src='{{publicPanelUrl}}/img/user.png'">
+                                <!-- <input type="hidden" name="img_url" value="{{user.img}}"> -->
+                            </div>
+                            <label class="profile-change-text mb-2" for="profile-img">
+                                change profile image
+                            </label>
+                            <form id="profile-image-form" action="{{baseUrl}}/profile-update/profile-image/{{user.id}}"
+                                method="POST" enctype="multipart/form-data">
+                                <input id="profile-img" type="file" name="file" class="input-type-file" onchange="javascript:document.getElementById('profile-image-form').submit();">
+                                <input type="hidden" name="img_url" value="{{user.img}}">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-sm-2">
+                            <label>Account Id</label>
+                            <input type="text" readonly class="form-control" value="{{user.id}}">
+                            <input type="hidden" readonly class="form-control" name="is_master" value="{{user.id}}">
+                        </div>
+                    </div>
+
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" name="first_name" value="{{user.first_name}}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="last_name" value="{{user.last_name}}">
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Mobile No.</label>
+                            <input type="text" class="form-control" value="{{user.mobile}}" readonly>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label>Email</label>
+                            <input type="email" class="form-control" value="{{user.email}}" readonly>
+                        </div>
+
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Description</label>
+                            <textarea rows="2" class="form-control" name="description">{{user.description}}</textarea>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-join mt-3" id="on-personal-data-update">SAVE</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3"> Add Scholarship profile
+                </button>
+            </h5>
+        </div>
+        <div id="collapseEight" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="card-form-input-wrapper acc-wrapper">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" name="first_name">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="last_name">
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <div class="col-sm-6">
+                            <label>Mobile No.</label>
+                            <input type="number" class="form-control" name="mobile" value="{{user.mobile}}">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" value="{{user.email}}">
+                        </div>
+                    </div>
+
+                    <div class="row mr-form-top">
+                        <!-- <div class="col-sm-6">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div> -->
+
+                        <div class="col-sm-6 ">
+                            <label>Qualification</label>
+                            <select class="form-control" name="qualification_id">
+                                <option value="">--select qualification --</option>
+                                {{#each categories.education.subcategories as |item|}}
+                                <option value="{{item.id}}">{{item.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <button class="btn btn-join mt-3" id="on-create-another-account">SAVE</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

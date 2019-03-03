@@ -1,0 +1,145 @@
+<input type="hidden" id="baseUrl" value="{{baseUrl}}">
+<div class="top-bar ">
+  <img src="{{publicPanelUrl}}/img/nav-top-img.png" class="nav-top-img">
+  <div class=" bar-element">
+    {{#if appDetail.mobile}}
+    <p class="mr-3 fs-15 ">Call:</p>
+    <img src="{{publicPanelUrl}}/img/call.png" class="mr-3">
+    <p class="mr-5 black fw-700 mobile-no">{{appDetail.mobile}}</p>
+    {{/if}}
+    <a href="{{socialUrl appDetail.facebook}}"><img src="{{publicPanelUrl}}/img/facebook.svg" class="mr-3"></a>
+    <a href="{{socialUrl appDetail.twitter}}"><img src="{{publicPanelUrl}}/img/twitter.svg" class="mr-3"></a>
+    <a href="{{socialUrl appDetail.linkedin}}"><img src="{{publicPanelUrl}}/img/linkedin.svg" class="mr-3"></a>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{baseUrl}}"> <img src="{{publicPanelUrl}}/img/logo.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{baseUrl}}">Home <span class="sr-only">(current)</span>
+          <div class="dot-list">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+          </div>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Scholarships
+
+          <div class="dot-list">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+          </div>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{baseUrl}}/scholarship-list">All Scholarship</a>
+          {{#each headerMenu as |item|}}
+          <a class="dropdown-item" href="{{baseUrl}}/scholarship-list/{{item.id}}?action=headerMenu">{{item.name}}</a>
+          {{/each}}
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{baseUrl}}/about-us">About Us
+          <div class="dot-list">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+          </div>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="#">Blog
+          <div class="dot-list">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+          </div>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{{baseUrl}}/contact-us">Contact Us
+          <div class="dot-list">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+          </div>
+        </a>
+      </li>
+
+      {{#if user}}
+      <!---------- afetr login start ---->
+      <li class="nav-item">
+        <input type="hidden" id="user_id" value="{{user.id}}">
+        <a class="nav-link " href="{{baseUrl}}/dashboard">Dashboard
+          <div class="dot-list">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+          </div>
+        </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <div class="switch-box nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <span class="round-profile-list">
+            <img src="{{user.img}}" onerror="this.src='{{publicPanelUrl}}/img/user.png'">
+          </span>
+          <div>
+            {{#if user.parent_id}}
+            <p class="m-0 black line-height-small fw-600 fs-16">{{parentUser.first_name}}</p>
+            <p class="deepskyblue fs-10 m-0">Switch to master profile</p>
+            {{else}}
+            <p class="m-0 black line-height-small fw-600 fs-16">{{user.first_name}}</p>
+            <p class="deepskyblue fs-10 m-0">master account</p>
+            {{/if}}
+          </div>
+          <img src="{{publicPanelUrl}}/img/d-arrow.svg" width="16px">
+        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {{#if user.parent_id}}
+          <a class="dropdown-item" href="{{baseUrl}}/switch-to-parent">Switch to Master profile</a>
+          {{/if}}
+          <a class="dropdown-item" href="{{baseUrl}}/logout">Logout</a>
+        </div>
+      </li>
+      <!---------- afetr login close ---->
+      {{else}}
+
+      <li class="nav-item">
+        <a class="nav-link " href="#" data-toggle="modal" data-target="#loginModal">Log In
+          <div class="dot-list">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+            <img src="{{publicPanelUrl}}/img/dot.svg" width="6px">
+          </div>
+        </a>
+      </li>
+      <li class="nav-item d-flex align-items-center">
+        <button class="btn btn-register" data-toggle="modal" data-target="#registerModal"> Register </button>
+      </li>
+      {{/if}}
+
+    </ul>
+
+  </div>
+</nav>
+
+<div id="loader-div">
+  <img src="{{publicPanelUrl}}/img/loader.gif">
+</div>
+
+
+{{> panel/modal}}

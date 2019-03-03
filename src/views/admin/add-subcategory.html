@@ -1,0 +1,102 @@
+{{> admin/head headTitle = 'add subcategory'}}
+<div class="wrapper">
+    {{> admin/header}}
+
+    {{> admin/sidenav}}
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Sub Category
+                <!-- <small>Control panel</small> -->
+            </h1>
+            <!-- <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol> -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6 col-md-offset-3">
+
+                    {{#if success}}
+
+                        {{#each success}}
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> {{this}}
+                        </div>
+                        {{/each}}
+                    {{else if error}}
+
+                        {{#each error}}
+                        <div class="alert alert-danger">
+                            <strong>Danger!</strong> {{this}}
+                        </div>
+                        {{/each}}
+                    {{/if}}
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Add new sub category</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form role="form" action="{{baseUrl}}/admin/add-subcategory" method="POST" enctype="multipart/form-data">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="subcategory_name">Sub category name</label>
+                                    <input type="text" class="form-control" id="subcategory_name" name="subcategory_name"
+                                        placeholder="Enter category name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="category_id">Select Category</label>
+                                    <select class="form-control" name="category_id" id="category_id">
+                                        {{#each data as |item|}}
+                                        <option value="{{item.id}}">{{item.name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="file">File input</label>
+                                    <input type="file" id="file" name="file">
+                                </div> -->
+                            </div>
+                            <!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box -->
+
+
+
+                </div>
+                <!--/.col (left) -->
+
+            </div>
+            <!-- /.row -->
+
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    {{> admin/footer}}
+
+
+
+</div>
+<!-- ./wrapper -->
+
+{{> admin/footer-link}}

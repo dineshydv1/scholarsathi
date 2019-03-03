@@ -1,0 +1,266 @@
+{{> panel/head headTitle = 'scholarship detail'}}
+
+{{> panel/header}}
+
+
+<section class="contact about text-center ">
+     <div class="account-wrapper comman-pad scholar-detail">
+
+          <div class="row">
+
+               <div class="col-lg-8 text-left">
+
+                    <div class="saved-scholarship">
+                         <!----------- saved card start ------------>
+                         <div class="saved-card bg-transparent box-shadow-none mb-2 pt-3">
+                              <div class="row align-items-center">
+                                   <div class="col-auto">
+                                        {{#if user}}
+                                        {{#if user.parent_id}}
+                                        {{#compare scholarship.saved_count '>' 0}}
+                                        <a href="{{baseUrl}}/unsaved-scholarship/{{scholarship.id}}" class="btn btn-join">SAVED</a>
+                                        {{else}}
+                                        <a href="{{baseUrl}}/saved-scholarship/{{scholarship.id}}" class="btn btn-join btn-join-outline">SAVE</a>
+                                        {{/compare}}
+                                        {{/if}}
+
+                                        {{else}}
+                                        <button data-toggle="modal" data-target="#registerModal" class="btn btn-join btn-join-outline">SAVE</button>
+                                        {{/if}}
+
+
+                                   </div>
+                                   <div class="col-auto ml-auto">
+                                        <button class="btn btn-join btn-join-outline pointer-event-none">{{scholarship.views_count}}
+                                             Views</button>
+                                   </div>
+                              </div>
+                         </div>
+
+
+
+                         <!----------- saved card start ------------>
+                         <div class="saved-card p-1">
+                              <div class="row align-items-center">
+                                   <div class="col-sm-3 d-flex">
+                                        <div class="saved-card-img">
+                                             <!-- <img src="{{publicPanelUrl}}/img/circle-logo.png" width="70%"> -->
+                                             <img src="{{assetsUrl scholarship.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'"
+                                                  width="70%">
+                                        </div>
+                                   </div>
+                                   <div class="col-sm-9">
+                                        <div class="saved-card-detail">
+                                             <p class="saved-card-detail-heading md-text-center"> {{scholarship.name}} </p>
+
+                                        </div>
+                                   </div>
+
+                              </div>
+                         </div>
+                         <!----------- saved card closed ------------>
+
+                         {{#if scholarship.description}}
+                         <!----------- saved card start ------------>
+                         <div class="saved-detail">
+                              <div class="row">
+                                   <div class="saved-card-detail">
+                                        <p class="saved-card-detail-heading"> Description </p>
+                                        {{{scholarship.description}}}
+                                   </div>
+                              </div>
+                         </div>
+                         <!----------- saved card closed ------------>
+                         {{/if}}
+
+                         {{#if scholarship.eligibility_description}}
+                         <!----------- saved card start ------------>
+                         <div class="saved-detail">
+                              <div class="row">
+                                   <div class="saved-card-detail">
+                                        <p class="saved-card-detail-heading"> Eligibility </p>
+                                        {{{scholarship.eligibility_description}}}
+                                   </div>
+                              </div>
+                         </div>
+                         <!----------- saved card closed ------------>
+                         {{/if}}
+
+                         {{#if scholarship.award_description}}
+                         <!----------- saved card start ------------>
+                         <div class="saved-detail">
+                              <div class="row">
+                                   <div class="saved-card-detail">
+                                        <p class="saved-card-detail-heading"> Award Details </p>
+                                        {{{scholarship.award_description}}}
+                                   </div>
+                              </div>
+                         </div>
+                         <!----------- saved card closed ------------>
+                         {{/if}}
+
+                         {{#if scholarship.how_to_apply}}
+                         <!----------- saved card start ------------>
+                         <div class="saved-detail">
+                              <div class="row">
+                                   <div class="saved-card-detail">
+                                        <p class="saved-card-detail-heading"> How to Apply? </p>
+                                        {{{scholarship.how_to_apply}}}
+                                   </div>
+                              </div>
+                         </div>
+                         <!----------- saved card closed ------------>
+                         {{/if}}
+
+                         {{#if scholarship.document_required}}
+                         <!----------- saved card start ------------>
+                         <div class="saved-detail">
+                              <div class="row">
+                                   <div class="saved-card-detail">
+                                        <p class="saved-card-detail-heading"> Documents Required </p>
+                                        {{{scholarship.document_required}}}
+                                   </div>
+                              </div>
+                         </div>
+                         <!----------- saved card closed ------------>
+                         {{/if}}
+
+                         {{#if scholarship.important_link}}
+                         <!----------- saved card start ------------>
+                         <div class="saved-detail">
+                              <div class="row">
+                                   <div class="saved-card-detail">
+                                        <p class="saved-card-detail-heading"> Important Links </p>
+                                        {{{scholarship.important_link}}}
+                                   </div>
+                              </div>
+                         </div>
+                         <!----------- saved card closed ------------>
+                         {{/if}}
+
+
+                         {{#if scholarship.document}}
+                         <!----------- saved card start ------------>
+                         <div class="saved-detail">
+                              <div class="row">
+                                   <div class="saved-card-detail">
+                                        <p class="saved-card-detail-heading"> Documents </p>
+                                        <a href="{{scholarship.document}}" targte="_blank">View Document</a>
+                                   </div>
+                              </div>
+                         </div>
+                         <!----------- saved card closed ------------>
+                         {{/if}}
+                    </div>
+               </div>
+
+               <div class="col-lg-4">
+                    <div class="facebook-card text-center ">
+                         <!-- <div class="detail-card-header saved-card-img"> -->
+                         <!-- <img src="{{publicPanelUrl}}/img/circle-logo.png" width="80px"> -->
+                         <!-- <img src="{{baseUrl}}{{scholarship.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'"
+                                   width="80px"> -->
+                         <!-- </div> -->
+
+                         <div class="detail-card-list justify-content-center pt-0">
+                              {{#if scholarship.end_date}}
+                              <p class="grey fs-22 mb-0">Deadline - {{dateFormat scholarship.end_date 'DD-MMM-YYYY'}}</p>
+                              {{else}}
+                              <p class="grey fs-22 mb-0">Deadline - Always Open</p>
+                              {{/if}}
+                         </div>
+
+                         {{#if scholarship.eligibility_oneliner}}
+                         <div class="detail-card-list">
+                              <img src="{{publicPanelUrl}}/img/graduation.png" width="70px" height="70px">
+                              <div class="ml-4">
+                                   <p class="detail-card-list-header mb-0">Eligibility</p>
+                                   <p class="grey fs-18">{{scholarship.eligibility_oneliner}}</p>
+                              </div>
+                         </div>
+                         {{/if}}
+
+                         {{#if scholarship.award_oneliner}}
+                         <div class="detail-card-list">
+                              <img src="{{publicPanelUrl}}/img/award.png" width="70px" height="70px">
+                              <div class="ml-4">
+                                   <p class="detail-card-list-header mb-0">Awards</p>
+                                   <p class="grey fs-18">{{scholarship.award_oneliner}}</p>
+                              </div>
+                         </div>
+                         {{/if}}
+
+                         {{#if scholarship.country_name}}
+                         <div class="detail-card-list">
+                              <img src="{{publicPanelUrl}}/img/country.png" width="70px" height="70px">
+                              <div class="ml-4">
+                                   <p class="detail-card-list-header mb-0">Country</p>
+                                   <p class="grey fs-18">{{scholarship.country_name}}</p>
+                              </div>
+                         </div>
+                         {{/if}}
+
+                         <div class="pt-3 text-center">
+                              <!-- <p class="grey fs-22  mb-4">Deadline - {{dateFormat scholarship.end_date 'DD-MMM-YYYY'}}</p> -->
+                              <a href="{{scholarship.apply_now_button}}" target="_blank" class="btn btn-join"><img src="{{publicPanelUrl}}/img/send.png"
+                                        width="16px" class="mr-3">APPLY NOW</a>
+                         </div>
+
+                    </div>
+
+                    {{#if scholarship.contact_person}}
+                    <div class="facebook-card text-left">
+                         <div class="facebook-card-header">
+                              <p>Contact Person</p>
+                         </div>
+                         <div class="saved-card-detail mb-child-0">{{{scholarship.contact_person}}}</div>
+                    </div>
+                    {{/if}}
+
+                    <div class="facebook-card text-left ">
+                         <div class="facebook-card-header">
+                              <p>Popular Scholarships</p>
+                         </div>
+
+                         {{#each popularScholarship as |item|}}
+                         <div class="media scholarship-small-card">
+                              <div class="img-div">
+                                   <img src="{{assetsUrl item.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'">
+                              </div>
+                              <div class="media-body">
+                                   <a h href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}" class="saved-card-detail-heading scholarship-name fs-16 mb-2">{{item.name}}</a>
+                                   <p class="red fw-700 fs-14 mb-1">{{dateFormat item.end_date 'DD-MMM-YYYY'}}</p>
+                              </div>
+                         </div>
+                         {{/each}}
+                    </div>
+
+                    <!-- <div class="facebook-card text-left">
+                         <div class="facebook-card-header">
+                              <p>Find Us on Facebook</p>
+                         </div>
+                         <div class="facebook-card-header inner">
+                              <p>Lorem Ipsum dolar sit amet dolat soit</p>
+                         </div>
+                         <div class="facebook-card-header inner">
+                              <p>Lorem Ipsum dolar sit amet dolat soit</p>
+                         </div>
+                         <div class="facebook-card-header inner">
+                              <p>Lorem Ipsum dolar sit amet dolat soit</p>
+                         </div>
+                         <div class="facebook-card-header inner">
+                              <p>Lorem Ipsum dolar sit amet dolat soit</p>
+                         </div>
+                    </div> -->
+               </div>
+          </div>
+
+     </div>
+
+</section>
+<br><br>
+
+
+
+{{> panel/footer}}
+{{> panel/footer-link}}

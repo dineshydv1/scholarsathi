@@ -1,0 +1,146 @@
+{{> admin/head headTitle = 'update best scholarship'}}
+<div class="wrapper">
+    {{> admin/header}}
+
+    {{> admin/sidenav}}
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Update best scholarship
+                <!-- <small>Control panel</small> -->
+            </h1>
+            <!-- <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol> -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6 col-md-offset-3">
+
+                    {{#if success}}
+
+                    {{#each success}}
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{this}}
+                    </div>
+                    {{/each}}
+                    {{else if error}}
+
+                    {{#each error}}
+                    <div class="alert alert-danger">
+                        <strong>Danger!</strong> {{this}}
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Update best scholarship</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form role="form" action="{{baseUrl}}/admin/update-best-scholarship/{{data.id}}" method="POST"
+                            enctype="multipart/form-data">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="subcategory_name">Name</label>
+                                    <input type="text" class="form-control" id="subcategory_name" name="name"
+                                        placeholder="Enter category name" value="{{data.name}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="sub_title">Sub title</label>
+                                    <input type="text" class="form-control" id="sub_title" name="sub_title" placeholder="Enter sub title"
+                                        value="{{data.sub_title}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="order">Order</label>
+                                    <input type="text" class="form-control" id="order" name="order_number" placeholder="Enter order number"
+                                        value="{{data.order}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="category_id">Select Category</label>
+                                    <select class="form-control" id="header-menu-category-select" name="category_id" id="category_id">
+                                        <option value="">--selected category--</option>
+                                        {{#each category as |item|}}
+                                        <option value="{{item.id}}" {{selectedSelectOption item.id ../categoryId }}>{{item.name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="category_id">Select Subcategory</label><br>
+
+                                    <div id="header-menu-subcategory-checkbox-div">
+                                        {{#each subcategory as |item|}}
+                                        <label style="margin-right: 20px;
+                                        ">
+                                            <input type="checkbox"
+                                                {{multiCheckedCheckbox item.id ../data.subcategories}} value="{{item.id}}"
+                                                name="subcategories">
+                                            {{item.name}}
+                                        </label>
+                                        {{/each}}
+                                        <label style="min-width: 20%; margin-right: 10px;">
+                                            <input type="checkbox" class="check-all-checkbox-under-his-parent">
+                                            Select All
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="file">Upload Image</label>
+                                    <input type="file" id="file" name="file">
+                                    <!-- <p class="help-block">Example block-level help text here.</p> -->
+                                </div>
+                                <input type="hidden" name="img_url" value="{{data.img}}">
+
+                            </div>
+                            <!-- /.box-body -->
+
+                            {{#if data.img}}
+                            <img width="100px" height="100px" src="{{baseUrl}}{{data.img}}">
+                            {{/if}}
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box -->
+
+
+
+                </div>
+                <!--/.col (left) -->
+
+            </div>
+            <!-- /.row -->
+
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    {{> admin/footer}}
+
+
+
+</div>
+<!-- ./wrapper -->
+
+{{> admin/footer-link}}

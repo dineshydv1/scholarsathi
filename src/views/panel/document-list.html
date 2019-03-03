@@ -1,0 +1,78 @@
+{{> panel/head headTitle = 'document list'}}
+
+{{> panel/header}}
+
+<section class="contact about text-center ">
+    <h3 class="sub-heading">My Account</h3>
+    <!-- <p class="sub-para">Lorem ipsum dolar sit amet adipiscing</p> -->
+
+    <div class="account-wrapper comman-pad">
+        <div class="row">
+            <div class="col-lg-4">
+                {{> panel/profile-left-card}}
+            </div>
+            <div class="col-lg-8">
+                <div class="my-profile">
+                    <p class="fs-20 m-0">My Document List</p>
+                    <hr class="small-line mb-2">
+                    <p class="fs-18 deepskyblue">Go to My Account section to add Document.</p>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Document name</th>
+                                <th scope="col">Document Detail</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each document as |item index|}}
+                            <tr>
+                                <th scope="row">{{indexNumber index}}</th>
+                                <td> {{item.name}}</td>
+                                <td><a href="{{baseUrl}}{{item.doc}}" target="_blank" class="btn btn-join">View</a></td>
+                                <td><a href="{{baseUrl}}/delete-user-document/{{item.id}}" class="btn btn-join btn-danger">Delete</a></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+
+                    <!-- <div class="row">
+                        {{#each document as |item|}}
+                        <div class="col-6">
+                            <div class="saved-scholarship">
+
+                                <div class="saved-card">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="saved-card-detail">
+                                                <p class="saved-card-detail-heading"> {{item.name}} </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 text-center">
+                                            <div class="saved-card-deadline  d-flex align-items-center justify-content-center">
+                                                <button class="btn btn-join">View</button>
+                                                <a href="{{baseUrl}}/delete-scholarship-history/{{item.id}}" class="btn btn-join btn-danger">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div> -->
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<br><br>
+
+{{> panel/footer}}
+{{> panel/footer-link}}
