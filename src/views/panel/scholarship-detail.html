@@ -1,4 +1,33 @@
-{{> panel/head headTitle = 'scholarship detail'}}
+{{#section 'head'}}
+
+<meta name="description" content="">
+<title> {{scholarship.name}} | Scholarsathi</title>
+<meta name="keywords" content="">
+
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{assetsUrl scholarship.img}}" />
+<meta property="og:image:url" content="{{assetsUrl scholarship.img}}" />
+
+<meta property="og:title" content="{{scholarship.name}}" />
+<meta property="og:description" content='{{{scholarship.description}}}' />
+
+<meta property="og:url" content="{{baseUrl}}{{url}}" />
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="300" />
+<meta property="og:image:type" content="image/jpeg" />
+
+
+
+
+
+
+<link rel="stylesheet" href="{{publicPanelUrl}}/css/bootstrap-select.min.css">
+
+{{/section}}
+
+
+
+{{> panel/head fromPage = 'y'}}
 
 {{> panel/header}}
 
@@ -51,7 +80,7 @@
                                    </div>
                                    <div class="col-sm-9">
                                         <div class="saved-card-detail">
-                                             <p class="saved-card-detail-heading md-text-center"> {{scholarship.name}} </p>
+                                             <h1 class="saved-card-detail-heading md-text-center"> {{scholarship.name}} </h1>
 
                                         </div>
                                    </div>

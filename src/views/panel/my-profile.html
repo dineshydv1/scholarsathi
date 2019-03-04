@@ -4,11 +4,7 @@
 
 <section class="contact about text-center">
 
-  {{#if user.parent_id}}
-  <h3 class="sub-heading">{{user.first_name}}'s Profile</h3>
-  {{else}}
-  <h3 class="sub-heading">My Account</h3>
-  {{/if}}
+  {{> panel/my-account-text}}
 
   {{#if user.parent_id}}
   {{#compare user.is_premium 'y'}}

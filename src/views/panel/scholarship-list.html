@@ -1,10 +1,16 @@
 {{#section 'head'}}
+
+<meta name="description" content="">
+<title>Scholarsathi List | Scholarsathi</title>
+<meta name="keywords" content="">
+
 <link rel="stylesheet" href="{{publicPanelUrl}}/css/bootstrap-select.min.css">
+
 {{/section}}
 
 
 
-{{> panel/head headTitle = 'scholarship list'}}
+{{> panel/head}}
 
 {{> panel/header}}
 
@@ -25,7 +31,8 @@
                <!-- <span>yash <img class="ml-2 mt-m-2" width="18px" src="{{publicPanelUrl}}/img/cancel.png"> </span>
                <span>yash</span> -->
                {{#each selectedSubcategory as |item|}}
-               <span data-id="{{item.id}}">{{item.name}} <img class="ml-2 mt-m-2" width="18px" src="{{publicPanelUrl}}/img/cancel.png"></span>
+               <span data-id="{{item.id}}">{{item.name}} <img class="ml-2 mt-m-2" width="18px"
+                         src="{{publicPanelUrl}}/img/cancel.png"></span>
                {{/each}}
           </p>
           <div class="filter-bar">
@@ -38,10 +45,11 @@
                                    Education 
                                    <img src="{{publicPanelUrl}}/img/down-arrow.svg" width="20px">
                               </p> -->
-                              <select class="selectpicker" name="education" multiple data-live-search="true" title="Education"
-                                   data-selected-text-format="static">
+                              <select class="selectpicker" name="education" multiple data-live-search="true"
+                                   title="Education" data-selected-text-format="static">
                                    {{#each categories.education.subcategories as |item|}}
-                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }}
+                                        value="{{item.id}}">{{item.name}}</option>
                                    {{/each}}
                               </select>
 
@@ -52,10 +60,11 @@
                     <!------- fiter element start -------->
                     <div class="col-lg-2 bd-r">
                          <div class="dropdown scholarship-filter-dropdown mt-1">
-                              <select class="selectpicker" name="religion" multiple data-live-search="true" title="Religion"
-                                   data-selected-text-format="static">
+                              <select class="selectpicker" name="religion" multiple data-live-search="true"
+                                   title="Religion" data-selected-text-format="static">
                                    {{#each categories.religion.subcategories as |item|}}
-                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }}
+                                        value="{{item.id}}">{{item.name}}</option>
                                    {{/each}}
                               </select>
                          </div>
@@ -68,7 +77,8 @@
                               <select class="selectpicker" name="gender" multiple data-live-search="true" title="Gender"
                                    data-selected-text-format="static">
                                    {{#each categories.gender.subcategories as |item|}}
-                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }}
+                                        value="{{item.id}}">{{item.name}}</option>
                                    {{/each}}
                               </select>
 
@@ -79,11 +89,12 @@
                     <!------- fiter element start -------->
                     <div class="col-lg-2 bd-r">
                          <div class="dropdown scholarship-filter-dropdown mt-1">
-                              <select class="selectpicker" name="scholarship" multiple data-live-search="true" title="Scholarship"
-                                   data-selected-text-format="static">
+                              <select class="selectpicker" name="scholarship" multiple data-live-search="true"
+                                   title="Scholarship" data-selected-text-format="static">
                                    {{#each categories.type.subcategories as |item|}}
                                    <!-- <option value="">select</option> -->
-                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }}
+                                        value="{{item.id}}">{{item.name}}</option>
                                    {{/each}}
                               </select>
 
@@ -99,11 +110,12 @@
                                    Country <img src="{{publicPanelUrl}}/img/down-arrow.svg" width="20px">
                               </p> -->
 
-                              <select class="selectpicker" name="country" multiple data-live-search="true" title="Country"
-                                   data-selected-text-format="static">
+                              <select class="selectpicker" name="country" multiple data-live-search="true"
+                                   title="Country" data-selected-text-format="static">
                                    {{#each categories.country.subcategories as |item|}}
                                    <!-- <option value="">select</option> -->
-                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }} value="{{item.id}}">{{item.name}}</option>
+                                   <option {{multiSelectedSelectOption item.id ../selectedSubcategoryIds }}
+                                        value="{{item.id}}">{{item.name}}</option>
                                    {{/each}}
                               </select>
 
@@ -134,9 +146,12 @@
           <div class="row">
                <div class="col-auto">
                     <div class="btn-group active-inactive-box" role="group" aria-label="Basic example">
-                         <button type="button" data-type="active" class="btn active-inactive-box-button active">Active</button>
-                         <button type="button" data-type="inactive" class="btn active-inactive-box-button">Inactive</button>
-                         <button type="button" data-type="always_open" class="btn active-inactive-box-button">Always Open</button>
+                         <button type="button" data-type="active"
+                              class="btn active-inactive-box-button active">Active</button>
+                         <button type="button" data-type="inactive"
+                              class="btn active-inactive-box-button">Inactive</button>
+                         <button type="button" data-type="always_open" class="btn active-inactive-box-button">Always
+                              Open</button>
                     </div>
                </div>
           </div>
@@ -161,10 +176,12 @@
                          {{#each popularScholarship as |item|}}
                          <div class="media scholarship-small-card">
                               <div class="img-div">
-                                   <img src="{{assetsUrl item.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'">
+                                   <img src="{{assetsUrl item.img}}"
+                                        onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'">
                               </div>
                               <div class="media-body">
-                                   <a h href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}" class="saved-card-detail-heading scholarship-name fs-16 mb-2">{{item.name}}</a>
+                                   <a h href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}"
+                                        class="saved-card-detail-heading scholarship-name fs-16 mb-2">{{item.name}}</a>
                                    <p class="red fw-700 fs-14 mb-1">{{dateFormat item.end_date 'DD-MMM-YYYY'}}</p>
                               </div>
                          </div>
@@ -179,10 +196,12 @@
                          {{#each recentlyAddedScholarship as |item|}}
                          <div class="media scholarship-small-card">
                               <div class="img-div">
-                                   <img src="{{assetsUrl item.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'">
+                                   <img src="{{assetsUrl item.img}}"
+                                        onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'">
                               </div>
                               <div class="media-body">
-                                   <a h href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}" class="saved-card-detail-heading scholarship-name fs-16 mb-2">{{item.name}}</a>
+                                   <a h href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}"
+                                        class="saved-card-detail-heading scholarship-name fs-16 mb-2">{{item.name}}</a>
                                    <p class="red fw-700 fs-14 mb-1">{{dateFormat item.end_date 'DD-MMM-YYYY'}}</p>
                               </div>
                          </div>

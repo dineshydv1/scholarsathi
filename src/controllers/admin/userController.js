@@ -2,6 +2,7 @@ const fs = require('fs');
 const csv = require('fast-csv');
 const db = require('./../../db/mysql');
 const XLSX = require('xlsx');
+const moment = require('moment');
 const appFunction = require('../../../app-function');
 const UserUpload = require('./../job/userUpload');
 
@@ -38,50 +39,65 @@ const UserController = {
     deleteUserGet: (req, res) => {
         db.User.findByPk(req.params.id, { raw: true, attributes: ['id', 'img'] })
             .then((result) => {
-                db.User.destroy({
+                return db.User.destroy({
                     where: { id: req.params.id }
-                })
-                    .then(() => {
-                        // console.log(result.img);
-                        fs.unlinkSync(sourcePath + result.img);
-                        return res.redirect('back');
-                    }).catch((err) => {
-                        // console.log(err);
-                        return res.redirect('back');
-                    });
+                });  
+            })
+            .then(()=>{
+                return db.User.destroy({
+                    where: { parent_id: req.params.id }
+                });
+            })
+            .then(() => {
+                // console.log(result.img);
+                fs.unlinkSync(sourcePath + result.img);
+                return res.redirect('back');
             }).catch(() => {
                 return res.redirect('back');
             });
     },
     addUserViaFileGet: async (req, res) => {
         let state = await db.State.findAll({ where: { country_id: 101 } });
-        let interest = await db.Subcategory.findAll({where: { category_id: 1 }})
+        let interest = await db.Subcategory.findAll({ where: { category_id: 1 } })
         return res.render('admin/add-user-via-file', {
             state, interest
         });
     },
     addUserViaFilePost: async (req, res) => {
+        let body = req.body;
+
+
+        if (body.interest_checkbox) {
+            if (!Array.isArray(body.interest_checkbox)) {
+                body.interest_checkbox = Array(body.interest_checkbox);
+            }
+        } else {
+            body.interest_checkbox = [];
+        }
+        // return res.send({body})
+
+
         // return res.send({
         //     body: req.body
         // });
 
-        // if (!req.files.document) {
-        //     req.flash('error', 'File is required');
-        //     return res.redirect(`back`);
-        // }
-        // // upload document
-        // var doc = req.files.document;
-        // var docPath = null;
-        // if (doc) {
-        //     try {
-        //         docPath = await appFunction.fileUpload(doc, 'doc');
-        //     } catch (err) {
-        //         return res.status(500).send(err);
-        //     }
-        // }
+        if (!req.files.document) {
+            req.flash('error', 'File is required');
+            return res.redirect(`back`);
+        }
+        // upload document
+        var doc = req.files.document;
+        var docPath = null;
+        if (doc) {
+            try {
+                docPath = await appFunction.fileUpload(doc, 'doc');
+            } catch (err) {
+                return res.status(500).send(err);
+            }
+        }
 
         let rows = [];
-        var docPath = '/public' + '/uploads/doc/1549979634267-StudentUploadTemplate_97_2003.xls';
+        // var docPath = '/public' + '/uploads/doc/1549979634267-StudentUploadTemplate_97_2003.xls';
 
         var workbook = XLSX.readFile(sourcePath + docPath);
         var sheet_name_list = workbook.SheetNames;
@@ -92,17 +108,12 @@ const UserController = {
             defval: null
         });
         rows = xlData.slice(1, xlData.length);
+        // return res.send({a: sheet_name_list[0], body, rows, workbook});
+        let sheetPath = baseUrl+docPath;
+        UserUpload.onUserUpload(body, rows, sheetPath).then().catch();
 
-        return res.send({
-            body: req.body,
-            rows
-        });
-
-        req.flash('success', 'Data upload successfully');
+        req.flash('success', 'Upload data in progress....');
         return res.redirect(`back`);
-
-
-
     }
 }
 

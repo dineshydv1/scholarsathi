@@ -60,17 +60,18 @@
                                             <label>Send message</label>
 
                                             <!-- <textarea rows="5" cols="50" class="form-control"></textarea> -->
-                                            <p>Dear "{name}", a new scholarship matches your profile. Visit <a href="{{scholarship.short_link}}"
+                                            <p>Dear Scholar, a new scholarship matches your profile. Visit <a href="{{scholarship.short_link}}"
                                                     target="_blank">{{scholarship.short_link}}</a> to see details.</p>
-                                            <p class="color-red">enter text for sms, it's include with above text</p>
+                                            <p class="color-red">enter text for mobile sms, it's include with above text</p>
                                             <!-- onkeypress="return event.keyCode != 13;" -->
                                             <input class="form-control" name="text">
                                             <input type="hidden" name="short_link" value="{{scholarship.short_link}}">
+                                            <input type="hidden" name="scholarship_id" value="{{scholarship.id}}">
                                             <input type="hidden" name="checked_user">
                                         </div>
                                         <button type="submit" class="btn btn-primary mr-4" formaction="{{baseUrl}}/admin/send-sms-alert">Send
                                             mobile alert</button>
-                                        <button type="submit" class="btn btn-primary" formaction="#">Send email alert</button>
+                                        <button type="submit" class="btn btn-primary" formaction="{{baseUrl}}/admin/send-email-alert">Send email alert</button>
                                     </form>
                                     <script>
                                         $('#send-sms-from').submit(function (e) {

@@ -31,10 +31,6 @@ module.exports = (sequelize, Sequelize) => {
         tnc: {
             type: Sequelize.TEXT,
             allowNull: true,
-        },
-        welcome_email: {
-            type: Sequelize.TEXT,
-            allowNull: true,
         }
     }, {
             timestamps: false

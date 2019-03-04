@@ -190,6 +190,21 @@
                 </a>
             </li>
 
+            <li class="treeview {{activeClass path '/admin/seo-list'}} {{activeClass path '/admin/add-seo'}}">
+                <a href="#">
+                    <i class="fa fa-database"></i> <span>SEO</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{activeClass path '/admin/seo-list'}}"><a href="{{baseUrl}}/admin/seo-list"><i class="fa fa-circle-o"></i>
+                            SEO List</a></li>
+                    <li class="{{activeClass path '/admin/add-seo'}}"><a href="{{baseUrl}}/admin/add-seo"><i class="fa fa-circle-o"></i>Add New SEO</a></li>
+                </ul>
+            </li>
+
+
             <li class="">
                 <a href="{{baseUrl}}/admin/logout">
                     <i class="fa fa-sign-out"></i> <span>Logout</span>

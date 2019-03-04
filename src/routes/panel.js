@@ -24,6 +24,9 @@ router.post('/login', AuthController.loginPost);
 router.get('/logout', AuthController.logout);
 
 
+// state
+router.get('/get-cities/:stateId', ExtraAndCommonController.getCitiesByStateId);
+
 // otp
 router.get('/get-login-otp', AuthController.loginOtpGet);
 router.post('/login-with-otp', AuthController.loginWithOtpPost);
@@ -103,8 +106,9 @@ router.get('/account-list', isLogin, UserController.accountList);
 router.get('/scholarship-history-list', isLogin, UserController.scholarshipHistoryList);
 
 
-// state
-router.get('/get-cities/:stateId', isLogin, ExtraAndCommonController.getCitiesByStateId);
+// unbsubscribe email/sms
+router.get('/unsubscribe-service', isLogin, UserController.unsubscribeServiceGet);
+
 // subject
 router.get('/get-subject/:educationId', isLogin, ExtraAndCommonController.getSubjectByEducationId);
 

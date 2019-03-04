@@ -95,7 +95,18 @@ const ExtraAndCommonController = {
             where: {
                 id: ids
             }
-        }).then((r) => {
+        })
+        .then(async ()=>{
+            if(type == 'user'){
+                await tableModal.destroy({
+                    where: {
+                        parent_id: ids
+                    }
+                })
+            }
+            return Promise.resolve();
+        })
+        .then(() => {
             if (img[0]) {
                 for (let i = 0; i < img.length; i++) {
                     fs.unlinkSync(sourcePath + img[i]);

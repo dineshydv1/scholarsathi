@@ -11,7 +11,8 @@ const {
     BestScholarshipController,
     SubjectController,
     UserController,
-    ApiUserController
+    ApiUserController,
+    SeoController
 } = require('./../controllers/admin');
 
 
@@ -87,6 +88,7 @@ router.post('/add-scholarship-via-file', isLogin, ScholarshipController.addSchol
 router.get('/matched-user/:id', isLogin, ScholarshipController.matchedUserViaScholarshipWeb);
 
 router.post('/send-sms-alert', isLogin, ScholarshipController.sendSmsAlert);
+router.post('/send-email-alert', isLogin, ScholarshipController.emailAlert);
 
 // comman and extra
 
@@ -158,6 +160,14 @@ router.get('/add-api-user', isLogin, ApiUserController.addApiUserWeb);
 router.post('/add-api-user', isLogin, ApiUserController.addApiUserPost);
 router.get('/enable-api-user-status/:id', isLogin, ApiUserController.enableApiUserStatus);
 router.get('/disable-api-user-status/:id', isLogin, ApiUserController.disableApiUserStatus);
+
+// seo 
+router.get('/add-seo', isLogin, SeoController.addSeoWeb);
+router.post('/add-seo', isLogin, SeoController.addSeoPost);
+router.get('/update-seo/:id', isLogin, SeoController.updateSeoWeb);
+router.post('/update-seo/:id', isLogin, SeoController.updateSeoPost);
+router.get('/seo-list', isLogin, SeoController.seoListWeb);
+router.get('/delete-seo/:id', isLogin, SeoController.deleteSeoById);
 
 
 module.exports = router;

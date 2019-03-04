@@ -3,7 +3,7 @@
 {{> panel/header}}
 
 <section class="contact about text-center ">
-    <h3 class="sub-heading">My Account</h3>
+    {{> panel/my-account-text}}
     <!-- <p class="sub-para">Lorem ipsum dolar sit amet adipiscing</p> -->
 
     <div class="account-wrapper comman-pad">
@@ -110,6 +110,40 @@
                                         </div>
 
                                         <button class="btn btn-join mt-3" id="on-change-email">SAVE</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- change email -->
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree"
+                                        aria-expanded="true" aria-controls="collapseThree">
+                                        <img src="{{publicPanelUrl}}/img/add.svg" width="15px" class="mr-3">Unsubscribe Email/SMS
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="card-form-input-wrapper acc-wrapper">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                               <p> <a href="{{baseUrl}}/unsubscribe-service?action=email">click here</a> to unsubscribe email service, next time if want to receive email you need to verify your email.</p>
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                               <p><a href="{{baseUrl}}/unsubscribe-service?action=mobile">click here</a> to unsubscribe your SMS service, next time if want to receive SMS you need to verify your mobile number.</p>
+                                               
+                                            </div>
+                                        </div>
+
+                                        
 
                                     </div>
                                 </div>

@@ -3,7 +3,7 @@
 {{> panel/header}}
 
 <section class="contact about text-center ">
-    <h3 class="sub-heading">My Account</h3>
+    {{> panel/my-account-text}}
     <!-- <p class="sub-para">Lorem ipsum dolar sit amet adipiscing</p> -->
 
     <div class="account-wrapper comman-pad">
@@ -14,8 +14,8 @@
             <div class="col-lg-8">
                 <div class="my-profile">
                     <p class="fs-20 m-0">Scholarship profile list</p>
-                    <hr class="small-line">
-
+                    <hr class="small-line mb-2">
+                    <p class="fs-18 deepskyblue">Go to My Account to add a new Scholarship Profile.</p>
                     <div class="saved-scholarship">
                         {{#each childrenList as |item|}}
                         <!----------- saved card start ------------>
@@ -78,7 +78,7 @@
                                         <p>Date of birth</p>
                                         <p class="grey fw-700 fs-14">{{dateFormat item.date_of_birth}}</p>
                                         {{/if}}
-                                        <a href="{{baseUrl}}/login-as-child/{{item.id}}" class="btn btn-join mt-5">Switch
+                                        <a href="{{baseUrl}}/login-as-child/{{item.id}}" class="btn btn-join mt-2">Switch
                                             to</a>
                                     </div>
                                 </div>

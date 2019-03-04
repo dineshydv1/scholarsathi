@@ -59,13 +59,13 @@ const AuthController = {
         user
             .then(async (result)=>{
                 if(result.email){
-                    let appDetail = await db.AppDetail.findOne({where: {id: 1}});
                     try{
                         await EmailController.sendWelcomeEmail({
+                            user_id: result.id,
                             first_name: result.first_name,
                             last_name: result.last_name,
                             email: result.email,
-                            message: appDetail ? appDetail.welcome_email: null
+                            clientIp: req.clientIp
                         });
                     }catch(e){
                         console.log(e);

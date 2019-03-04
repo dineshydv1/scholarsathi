@@ -200,6 +200,22 @@ module.exports = (sequelize, Sequelize) => {
                         }
                     }
                 },
+                activeAndAlwaysOpen: function(){
+                    return {
+                        where: {
+                            [sequelize.Op.or]: [
+                                {
+                                    end_date: {
+                                        [sequelize.Op.gte]: moment().startOf('day').utc(true).subtract({ h: 5, m: 30 })
+                                    }
+                                },
+                                {
+                                    end_date: null
+                                }
+                            ]
+                        }
+                    }
+                },
                 all: {
                     where: {}
                 }

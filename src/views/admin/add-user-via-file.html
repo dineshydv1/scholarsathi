@@ -18,7 +18,7 @@
                     </h1>
                 </div>
                 <div class="col-md-6 text-center">
-                    <a href="{{publicUrl}}/user-data.csv" class="btn btn-primary" download>Download Demo CSV</a>
+                    <a href="{{publicUrl}}/user-data.xls" class="btn btn-primary" download>Download Demo CSV</a>
                 </div>
             </div>
             <!-- <ol class="breadcrumb">
@@ -70,13 +70,24 @@
                                 <div class="form-group">
                                     <label>User type</label><br>
                                     <label style="min-width: 30%;">
-                                        <input type="radio" value="n" name="user_type" checked>
+                                        <input type="radio" value="n" name="is_premium" checked>
                                         Free User
                                     </label>
                                     <label style="min-width: 30%;">
-                                        <input type="radio" value="y" name="user_type">
+                                        <input type="radio" value="y" name="is_premium">
                                         Paid User
                                     </label>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-4 form-group">
+                                        <label>Description</label>
+                                        <textarea type="text" class="form-control" name="description"></textarea>
+                                    </div>
+                                    <div class="col-sm-4 form-group">
+                                        <label>Address</label>
+                                        <textarea type="text" class="form-control" name="address"></textarea>
+                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -103,14 +114,16 @@
                                     </div>
                                 </div>
 
+
+
                                 <div class="row">
-                                    <div class="col-sm-4 form-group">
-                                        <label>Address</label>
-                                        <textarea type="text" class="form-control" name="address"></textarea>
-                                    </div>
                                     <div class="col-sm-4 form-group">
                                         <label>Pincode</label>
                                         <input type="number" class="form-control" name="pincode">
+                                    </div>
+                                    <div class="col-sm-4 form-group">
+                                        <label>Name of institute</label>
+                                        <input type="text" class="form-control" name="institute_name">
                                     </div>
                                 </div>
 
@@ -118,8 +131,7 @@
                                     <label class="text-capitalize">Select Interest</label><br />
                                     {{#each interest as |item|}}
                                     <label style="min-width: 20%; margin-right: 10px;">
-                                        <input type="checkbox"
-                                            value="{{item.id}}" name="interest_checkbox">
+                                        <input type="checkbox" value="{{item.id}}" name="interest_checkbox">
                                         {{item.name}}
                                     </label>
                                     {{/each}}

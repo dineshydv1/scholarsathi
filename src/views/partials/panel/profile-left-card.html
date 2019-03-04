@@ -21,46 +21,46 @@
     {{/if}}
     <div class="profile-card-list">
         {{#if user.parent_id}}
-        <a href="{{baseUrl}}/matched-scholarship-list" class="profile-card-list-row">
+        <a href="{{baseUrl}}/matched-scholarship-list" class="profile-card-list-row {{activeClass path '/matched-scholarship-list'}}">
             <img src="{{publicPanelUrl}}/img/guarantee.png" width="22px">
             <p class="m-0">My Matched Scholarship</p>
         </a>
 
-        <a href="{{baseUrl}}/saved-scholarship-list" class="profile-card-list-row">
+        <a href="{{baseUrl}}/saved-scholarship-list" class="profile-card-list-row {{activeClass path '/saved-scholarship-list'}}">
             <img src="{{publicPanelUrl}}/img/bookmark-grey.png" width="22px">
             <p class="m-0">My Saved Scholarship</p>
         </a>
 
-        <a href="{{baseUrl}}/entrance-exam-list" class="profile-card-list-row">
+        <a href="{{baseUrl}}/entrance-exam-list" class="profile-card-list-row {{activeClass path '/entrance-exam-list'}}">
             <img src="{{publicPanelUrl}}/img/entrance-exam.png" width="22px">
             <p class="m-0">Entrance Exam List</p>
         </a>
 
-        <a href="{{baseUrl}}/scholarship-history-list" class="profile-card-list-row">
+        <a href="{{baseUrl}}/scholarship-history-list" class="profile-card-list-row {{activeClass path '/scholarship-history-list'}}">
             <img src="{{publicPanelUrl}}/img/history.png" width="22px">
             <p class="m-0">Scholarship History List</p>
         </a>
 
-        <a href="{{baseUrl}}/document-list" class="profile-card-list-row">
+        <a href="{{baseUrl}}/document-list" class="profile-card-list-row {{activeClass path '/document-list'}}">
             <img src="{{publicPanelUrl}}/img/doc.png" width="22px">
             <p class="m-0">Document List</p>
         </a>
 
         {{else}}
 
-        <a href="{{baseUrl}}/account-list" class="profile-card-list-row">
+        <a href="{{baseUrl}}/account-list" class="profile-card-list-row {{activeClass path '/account-list'}}">
             <img src="{{publicPanelUrl}}/img/three-users.png" width="22px">
             <p class="m-0">Scholarship Profile List</p>
         </a>
 
         {{/if}}
 
-        <a href="{{baseUrl}}/my-profile" class="profile-card-list-row">
+        <a href="{{baseUrl}}/my-profile" class="profile-card-list-row {{activeClass path '/my-profile'}}">
             <img src="{{publicPanelUrl}}/img/one-user.png" width="22px">
             <p class="m-0">My Account</p>
         </a>
 
-        <a href="{{baseUrl}}/setting" class="profile-card-list-row">
+        <a href="{{baseUrl}}/setting" class="profile-card-list-row {{activeClass path '/setting'}}">
             <img src="{{publicPanelUrl}}/img/setting.png" width="22px">
             <p class="m-0">Setting</p>
         </a>

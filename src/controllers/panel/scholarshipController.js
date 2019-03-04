@@ -350,12 +350,10 @@ const ScholarshipController = {
                     }
                 ],
             },
-
-            limit, offset
+            limit, offset,
+            order: ['end_date']
         });
-        // return res.send(scholarshipData);
-        // console.log('00 --matched scholarship');
-        // return res.send({ a: scholarshipData.rows });
+        
         return res.render('panel/matched-scholarship', {
             scholarship: scholarshipData.rows,
             pages: Array.from({ length: Math.ceil(scholarshipData.count / limit) }, (x, y) => y + 1),
@@ -363,14 +361,6 @@ const ScholarshipController = {
             activePage: page,
             paginationAjax: false,
             path: req.path
-        });
-        // console.log('11 --matched scholarship');
-    },
-    matchedScholarshipWeb: async (req, res) => {
-
-        // let scholarship = await db.Scholarship.findAll();
-        res.render('panel/matched-scholarship', {
-            scholarship: require('./../../../data.json'),
         });
     }
 }

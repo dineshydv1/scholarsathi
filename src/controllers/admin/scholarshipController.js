@@ -4,7 +4,7 @@ const csv = require('fast-csv');
 const Joi = require('joi');
 const XLSX = require('xlsx');
 const appFunction = require('../../../app-function');
-const { SmsController } = require('./../others');
+const { SmsController, EmailController } = require('./../others');
 const db = require('./../../db/mysql');
 
 
@@ -537,7 +537,7 @@ const ScholarshipController = {
         });
     },
     sendSmsAlert: async (req, res) => {
-        let body = req.body;
+        let body = req.body;    
 
         let usersMobiles = (await db.User.scope('childAccount').findAll({
             attributes: ['mobile'],
@@ -559,6 +559,20 @@ const ScholarshipController = {
             req.flash('error', e)
         }
         return res.redirect('back');
+    },
+    emailAlert: async (req, res) => {
+        let body = req.body;
+        let users = await db.User.scope('childAccount').findAll({
+            attributes: ['first_name', 'last_name', 'email'],
+            where: {
+                email_verified: 'y',
+                id: body.checked_user.split(',')
+            }
+        });
+        EmailController.sendEmailAlert(users, body).then().catch();
+        req.flash('success', 'Email sending in progress....');
+        return res.redirect(`back`);
+        
     }
 
 }

@@ -3,10 +3,9 @@ const path = require('path');
 const moment = require('moment');
 var basename = path.basename(__filename);
 const Sequelize = require('sequelize');
-// const env = 'development';
-const env = 'production';
+const env = 'development';
+//const env = 'production';
 const config = require('./../config/db.config.json')[env];
-console.log(config);
 var db = {};
 const sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,
@@ -60,6 +59,7 @@ db.Career = sequelize.import('./../models/careerModel');
 db.ApiUser = sequelize.import('./../models/apiUserModel');
 db.Otp = sequelize.import('./../models/otpModel');
 db.UserSub = sequelize.import('./../models/userSubModel');
+db.Seo = sequelize.import('./../models/seoModel');
 
 // db.t = sequelize.define('', {
 //     email: {
@@ -118,10 +118,15 @@ db.User.belongsToMany(db.User, { through: db.ParentChildren, foreignKey: 'parent
 
 
 // saved scholarship
-db.User.belongsToMany(db.Scholarship, { through: db.SavedScholarship, foreignKey: 'user_id', otherKey: 'scholarship_id', as: 'saved' });
+db.User.belongsToMany(db.Scholarship, { through: db.SavedScholarship, foreignKey: 'user_id', otherKey: 'scholarship_id', as: 'saved', onDelete: 'CASCADE' });
 db.Scholarship.belongsToMany(db.User, { through: db.SavedScholarship, foreignKey: 'scholarship_id', otherKey: 'user_id', as: 'users' });
 
 db.Scholarship.hasMany(db.SavedScholarship, { foreignKey: 'scholarship_id', sourceKey: 'id', as: 'saved' });
+
+// associated
+db.User.hasMany(db.UserScholarshipHistory, { foreignKey: 'user_id', sourceKey: 'id', onDelete: 'CASCADE' });
+db.User.hasMany(db.UserEntranceExam, { foreignKey: 'user_id', sourceKey: 'id', onDelete: 'CASCADE' });
+db.User.hasMany(db.UserDocument, { foreignKey: 'user_id', sourceKey: 'id', onDelete: 'CASCADE' });
 
 // db.sequelize.sync()
 //     .then(() => {

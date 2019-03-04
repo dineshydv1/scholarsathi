@@ -1,5 +1,7 @@
 const path = require('path');
-var baseUrl = 'https://www.scholarsathi.com';
+var baseUrl = 'http://localhost:5000'; // development
+//var baseUrl = 'https://www.scholarsathi.com'; // production
+
 var scholarsathiUrl = 'https://www.scholarsathi.com';
 
 // global variable

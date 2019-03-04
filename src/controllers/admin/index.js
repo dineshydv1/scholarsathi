@@ -10,4 +10,5 @@ module.exports = {
     SubjectController: require('./subjectController'),
     UserController: require('./userController'),
     ApiUserController: require('./apiUserController'),
+    SeoController: require('./seoController'),
 }

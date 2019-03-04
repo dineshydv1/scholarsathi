@@ -7,35 +7,42 @@
             <div class="col-sm-3 d-flex">
                 <div class="saved-card-img">
                     <!-- width="70%" -->
-                    <img src="{{assetsUrl item.img}}" onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'">
+                    <img src="{{assetsUrl item.img}}"
+                        onerror="this.src='{{publicPanelUrl}}/img/default-scholarship.png'">
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="saved-card-detail">
-                    <a href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}" class="saved-card-detail-heading scholarship-name mb-2">
+                    <a href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}"
+                        class="saved-card-detail-heading scholarship-name mb-2">
                         {{item.name}} </a>
                     <div class="saved-card-detail-row">
                         {{#if item.eligibility_oneliner}}
-                        <p class="grey mb-1 fs-14"><img src="{{publicPanelUrl}}/img/guarantee.png" width="20px" class="mr-3">{{item.eligibility_oneliner}}</p>
+                        <p class="grey mb-1 fs-14"><img src="{{publicPanelUrl}}/img/guarantee.png" width="20px"
+                                class="mr-3">{{item.eligibility_oneliner}}</p>
                         {{/if}}
                         {{#if item.award_oneliner}}
-                        <p class="grey m-0 fs-14"> <img src="{{publicPanelUrl}}/img/guarantee.png" width="20px" class="mr-3">{{item.award_oneliner}}</p>
+                        <p class="grey m-0 fs-14"> <img src="{{publicPanelUrl}}/img/guarantee.png" width="20px"
+                                class="mr-3">{{item.award_oneliner}}</p>
                         {{/if}}
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-3 text-center pl-0">
                 <div class="saved-card-deadline">
-                    <div class="deadline-box">
-                        <p class="mb-1">Deadline</p>
-                        {{#if item.end_date}}
-                        <p class="red fw-700 fs-14 mb-1">{{dateFormat item.end_date 'DD-MMM-YYYY'}}</p>
-                        {{else}}
-                        <p class="red fw-700 fs-14 mb-1">Always Open</p>
-                        {{/if}}
+                    <div>
+                        <div class="deadline-box">
+                            <p class="mb-1">Deadline</p>
+                            {{#if item.end_date}}
+                            <p class="red fw-700 fs-14 mb-1">{{dateFormat item.end_date 'DD-MMM-YYYY'}}</p>
+                            {{else}}
+                            <p class="red fw-700 fs-14 mb-1">Always Open</p>
+                            {{/if}}
 
+                        </div>
                     </div>
-                    <a href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}" class="btn btn-join mt-3">View
+                    <a href="{{baseUrl}}/scholarship-detail/{{item.id}}/{{item.slug_url}}"
+                        class="btn btn-join mt-3">View
                         Details</a>
                 </div>
             </div>
@@ -67,12 +74,13 @@
 <nav>
     <ul class="pagination">
         <li class="page-item {{smallIf activePage 1 'disabled' null}}">
-            <a class="page-link pagination-link-ajax "  data-page="{{previousPage}}">Previous</a>
+            <a class="page-link pagination-link-ajax " data-page="{{previousPage}}">Previous</a>
         </li>
         <!-- <li class="page-item"><a class="page-link">1</a></li> -->
         {{#each showPages as |item index|}}
         <li class="page-item">
-            <a class="page-link pagination-link-ajax {{activeClass ../activePage item}}" data-page="{{item}}">{{item}}</a>
+            <a class="page-link pagination-link-ajax {{activeClass ../activePage item}}"
+                data-page="{{item}}">{{item}}</a>
         </li>
         {{/each}}
         <li class="page-item {{smallIf pagesCount activePage 'disabled' null}}">

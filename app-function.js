@@ -33,12 +33,17 @@ const appFunction = {
     },
     appHeaderMenuData: async (req, res, next) => {
         // console.log(req.url);
-       
+        
+        // get seo meta tag
+        // console.log('path ',req.path);
+        let seo = await db.Seo.findOne({where: { path: req.path }});
+        res.locals.seo = seo;
 
-
+        // header menu
         let headerMenu = await db.HeaderMenu.findAll({ where: { search_below: 'n' }, attributes: ['id', 'name'], order: [['order', 'ASC']] });
         res.locals.headerMenu = headerMenu;
 
+        // app detail
         let appDetail = await db.AppDetail.findOne();
         res.locals.appDetail = appDetail;
 

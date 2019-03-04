@@ -1,23 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
 
 <head>
     <meta charset="utf-8">
-    <!-- <meta name="viewport"  content="width=1366" /> -->
-    <meta name="description" content="">
     <meta name="author" content="HackerKernel">
+    <!-- if seo comming from database -->
+    {{#if seo}}
+    <meta name="description" content="{{seo.description}}">
+    <title>{{seo.title}}</title>
+    <meta name="keywords" content="{{seo.keywords}}">
+    {{else}}
+
+    {{#if fromPage}}
+    {{else}}
+    <!-- if seo not comming from database -->
+    <!-- <meta name="description" content="Your Gateway To Scholarship World"> -->
+    <meta name="description" content="Get Your Best-Fit Scholarships">
+    {{#if headTitle}}
     <title>{{headTitle}}</title>
-    <meta name="keywords" content="">
+    {{else}}
+    <title>Scholarsathi</title>
+    {{/if}}
+    <meta name="keywords"
+        content="engineering olympiad, engineering competition, pan India competition, olympiad, engineers.">
+    {{/if}}
+
+    {{/if}}
+
+
+
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="{{baseUrl}}{{url}}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Scholarsathi" />
+    <meta name="author" content="Scholarsathi">
+    <meta name="contact" content="info@Scholarsathi.com">
+    <meta name="distribution" content="global">
+    <meta name="language" content="English">
+
+
+    {{#if fromPage}}
+    {{else}}
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{publicPanelUrl}}/img/help.png" />
+    <meta property="og:image:url" content="{{publicPanelUrl}}/img/help.png" />
+
+    <meta property="og:title" content="Scholarsathi" />
+    <!-- <meta property="og:description" content="Your Gateway To Scholarship World" /> -->
+    <meta property="og:description" content="Get Your Best-Fit Scholarships" />
+
+    <meta property="og:url" content="{{baseUrl}}{{url}}" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:type" content="image/png" />
+    {{/if}}
+
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-     <!-- ico icon -->
+
+
+
+
+
+
+    <!-- ico icon -->
     <link rel="icon" href="{{publicUrl}}/assets/scholarsathi-icon.ico">
+
+    <link rel="shortcut icon" href="{{publicUrl}}/assets/scholarsathi-icon.ico">
+    <link rel="apple-touch-icon" href="{{publicUrl}}/assets/scholarsathi-icon.ico">
+    <link rel="apple-touch-icon-precomposed" href="{{publicUrl}}/assets/scholarsathi-icon.ico">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Niramit:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 
+    <!-- css -->
     <link rel="stylesheet" href="{{publicUrl}}/panel/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{publicUrl}}/panel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="{{publicUrl}}/panel/css/owl.theme.min.css">

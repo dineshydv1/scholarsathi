@@ -275,13 +275,13 @@ const UserController = {
             })
             .then(async (user) => {
                 if (user.email) {
-                    let appDetail = await db.AppDetail.findOne({ where: { id: 1 } });
                     try {
                         await EmailController.sendWelcomeEmail({
+                            user_id: user.id,
                             first_name: user.first_name,
                             last_name: user.last_name,
                             email: user.email,
-                            message: appDetail ? appDetail.welcome_email : null
+                            clientIp: req.clientIp
                         });
                     } catch (e) {
                         console.log(e);
@@ -807,6 +807,30 @@ const UserController = {
                     message: 'Email Chnage successfully',
                     data: user
                 });
+            })
+            .catch((err) => {
+                console.log(err);
+                return next(err);
+            });
+    },
+    unsubscribeServiceGet: async (req, res, next) => {
+        let user = req.session.user;
+        let action = req.query.action;
+        return db.User.findByPk(user.id)
+            .then(async (user) => {
+                if (!user) return Promise.reject({ message: 'Server error' });
+                if(action == 'email'){
+                    user.email_verified = 'n';
+                }else
+                if(action == 'mobile'){
+                    user.mobile_verified = 'n';
+                }
+                return user.save();
+            })
+            .then((user) => {
+                req.flash('success', `Your ${action == 'email' ? 'email' : 'mobile SMS'} service unsubscribed successfully.`);
+                appFunction.updateUserSession(req, user);
+                return res.redirect('back')
             })
             .catch((err) => {
                 console.log(err);

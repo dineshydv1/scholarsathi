@@ -816,7 +816,8 @@ a.btn-join{
     padding: 15px 28px;
     color: #000;
 }
-.profile-card-list-row:hover{
+.profile-card-list-row:hover,
+.profile-card-list-row.active{
     background: #00bfff36;
     border-left: 2px solid deepskyblue;
     color: deepskyblue !important;

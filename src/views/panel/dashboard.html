@@ -38,7 +38,7 @@
                     </div>
                 </a>
             </div>
-            {{/if}}
+
             <!---------------- card start ---------------->
             <div class="col-md-3 col-6">
                 <a href="{{baseUrl}}/my-profile" class="scholarships-card dashboard-card text-center">
@@ -51,7 +51,20 @@
                     </div>
                 </a>
             </div>
-
+            {{else}}
+            <!---------------- card start parent profile ---------------->
+            <div class="col-md-3 col-6">
+                <a href="{{baseUrl}}/account-list" class="scholarships-card dashboard-card text-center">
+                    <div class="mb-4 mt-2">
+                        <img src="{{publicPanelUrl}}/img/my-profile.png">
+                    </div>
+                    <div class="scholarships-card-detail">
+                        <p class="scholarships-card-detail-heading fs-18 mb-1">My Profile</p>
+                        <p class="scholarships-card-detail-para niramit fs-14">View Your Profile</p>
+                    </div>
+                </a>
+            </div>
+            {{/if}}
         </div>
     </div>
 

@@ -86,7 +86,7 @@ app.use('/public', express.static(__dirname + '/src/public/'));
 
 
 app.use((req, res, next) => {
-    console.log(req.url);
+    console.log('url ', req.url);
     res.locals.formValue = req.flash('formValue')[0];
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error');
@@ -95,6 +95,7 @@ app.use((req, res, next) => {
     res.locals.user = req.session.user;
     req.flash('formValue', req.body);
     res.locals.path = req.path;
+    res.locals.url = req.url;
     req.clientIp = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     
     next();
@@ -105,21 +106,24 @@ app.use((req, res, next) => {
 app.use('/admin', adminRoutes);
 
 // route for api
-app.use('/api', apiRoutes);
+app.use('/api', (req, res, next)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+    next()
+}, apiRoutes);
 
 // route for web
 app.use('', appFunction.appHeaderMenuData, webRoutes);
 
 
-// app.use((req, res, next) => {
-//     console.log('hey');
-//     res.locals.test = '312313213'
-//     next();
-// });
+app.use((req, res, next) => {
+    return res.redirect('/')
+    // console.log('hey');
+    // next();
+});
 
 // send error
 app.use((err, req, res, next) => {
-    console.log(err);
+    // console.log(err);
     error = apiError(err);
     res.status(error.status || 500);
     res.send(error);
