@@ -1,16 +1,10 @@
 {{#section 'head'}}
-
-<meta name="description" content="">
-<title>Scholarsathi List | Scholarsathi</title>
-<meta name="keywords" content="">
-
 <link rel="stylesheet" href="{{publicPanelUrl}}/css/bootstrap-select.min.css">
-
 {{/section}}
 
 
 
-{{> panel/head}}
+{{> panel/head headTitle = 'Scholarsathi List | Scholarsathi'}}
 
 {{> panel/header}}
 
@@ -217,8 +211,17 @@
 <br><br>
 
 
+
 {{#section 'footer'}}
 <script src="{{publicPanelUrl}}/js/bootstrap-select.min.js"></script>
+
+{{#if user}}
+{{else}}
+<script>
+     $('#registerModal').modal('show');
+</script>
+{{/if}}
+
 {{/section}}
 
 

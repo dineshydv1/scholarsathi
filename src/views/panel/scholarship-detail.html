@@ -231,8 +231,8 @@
 
                          <div class="pt-3 text-center">
                               <!-- <p class="grey fs-22  mb-4">Deadline - {{dateFormat scholarship.end_date 'DD-MMM-YYYY'}}</p> -->
-                              <a href="{{scholarship.apply_now_button}}" target="_blank" class="btn btn-join"><img src="{{publicPanelUrl}}/img/send.png"
-                                        width="16px" class="mr-3">APPLY NOW</a>
+                              <a href="{{scholarship.apply_now_button}}" target="_blank" class="btn btn-join"><img src="{{publicPanelUrl}}/img/send.png" 
+                                   width="16px" class="mr-3">APPLY NOW</a>
                          </div>
 
                     </div>
@@ -288,6 +288,18 @@
 
 </section>
 <br><br>
+
+
+{{#section 'footer'}}
+
+{{#if user}}
+{{else}}
+<script>
+     $('#registerModal').modal('show');
+</script>
+{{/if}}
+
+{{/section}}
 
 
 
