@@ -1010,7 +1010,7 @@ a.btn-join{
     margin-bottom: 20px;
 }
 .saved-detail *:not(.saved-card-detail-heading){
-    margin-bottom: 0px;
+    /*margin-bottom: 0px;*/
 }
 .saved-card-detail-heading{
     font-size: 20px;
