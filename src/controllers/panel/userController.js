@@ -761,7 +761,7 @@ const UserController = {
                 return user.save();
             })
             .then((user) => {
-                req.flash('success', 'Mobile Chnaged successfully. Please go to my account and verify your mobile number');
+                req.flash('success', 'Mobile Changed successfully. Please go to my account and verify your mobile number');
                 appFunction.updateUserSession(req, user);
                 return res.send({
                     message: 'Mobile Chnage successfully',

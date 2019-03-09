@@ -1,6 +1,5 @@
 const moment = require('moment');
-var baseUrl = 'http://localhost:5000'; // development
-//var baseUrl = 'https://www.scholarsathi.com'; // production
+var baseUrl = 'https://www.scholarsathi.com';
 
 module.exports = {
     baseUrl: () => baseUrl,
