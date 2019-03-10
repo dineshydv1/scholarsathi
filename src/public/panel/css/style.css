@@ -1334,6 +1334,9 @@ footer{
 .scholarship-filter-dropdown .bootstrap-select .dropdown-item{
     text-transform: capitalize;
 }
+.pagination{
+    flex-wrap: wrap;
+}
 .pagination .page-link{
     color: grey !important;
 }
@@ -1679,6 +1682,9 @@ footer{
     padding: 7px;
    
 }
+.active-inactive-box .active-inactive-box-button{
+    padding: 12px 15px;
+}
 }
 
 
@@ -1737,7 +1743,7 @@ footer{
     font-size: 25px;
 }
 .header-input-filter-list .text {
-    font-size: 8px;
+    font-size: 11px;
 }
 .btn-view-all {
     font-size: 6px;
@@ -1758,7 +1764,7 @@ footer{
     right: -12px;
     width: 1px;
     height: 9px;
-    top: 1px;
+    top: 4px;
     background-color: #707070;
  }
  .scholarships{
